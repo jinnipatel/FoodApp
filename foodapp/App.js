@@ -22,6 +22,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import RootNavigator from './src/routes';
+
+
 
 
 const App = () => {
@@ -32,8 +35,8 @@ const App = () => {
   };
 
   return (
-   <View>
-     <Text>Hello Jeenni</Text>
+   <View style={{flex:1}}>
+      <RootNavigator/>
    </View>
   );
 };
