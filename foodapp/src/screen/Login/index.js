@@ -20,7 +20,6 @@ class Login extends Component {
       password: '',
       emailError: "",
       PasswordError:""
-      // isEmailValidate: false,
     }
   }
 
@@ -54,29 +53,6 @@ class Login extends Component {
    }
  }
 
-
-
-  // checked_filed = () => {
-  //   const { email, password,emailError,PasswordError } = this.state
-  //   if (email == "") {
-  //     alert("please fill email ")
-  //     return false;
-  //   }else if(password == ""){
-  //     alert("please Fill Password")
-  //   }
-  //    else if (emailError != null) {
-  //     alert("----",emailError)
-  //      this.props.navigation.navigate(Routes.Login)
-  //   }
-  //   else{
-  //     this.props.navigation.navigate(Routes.Auth, {
-  //       email: this.state.email,
-  //       password: this.state.password
-  //     });
-  //   }
-  //   return true;
-  // }
-
   making_api_call = () => {
     if (this.checked_filed()) {
       this.props.navigation.navigate(Routes.Home)
@@ -109,13 +85,6 @@ class Login extends Component {
               value={this.state.email}
               onChangeText={text=>this.setState({email:text})}/>
               <Text>{this.state.emailError}</Text>
-              {/* {this.state.isEmailvalidate ? (
-                <Text style={{ color: 'green' }}>
-                  {this.state.emailError}
-                </Text>
-              ) : (
-                <Text style={{ color: 'green' }}>{this.state.emailError}</Text>
-              )} */}
             </View>
             <Text style={styles.text_footer}>Password</Text>
             <View style={styles.action}>
@@ -131,7 +100,6 @@ class Login extends Component {
                 onChangeText={text=>this.setState({password:text})} />
                 <Text>{this.state.PasswordError}</Text>
             </View>
-            {/* <ButtonComp name="Signup" onPress={() => this.props.navigation.navigate('Signup')} />  */}
             <View style={styles.button}>
               <Button
                 name="LogIn"
@@ -147,18 +115,6 @@ class Login extends Component {
       </KeyboardAvoidingView>
     )
   }
-
-  // validate = (value) => {
-  //   let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  //   if (reg.test(value) === false) {
-  //     console.log('Email is not Correct');
-  //     this.setState({ email: value, emailError: 'Email is not correct' })
-  //     return false;
-  //   } else {
-  //     this.setState({ email: value, emailError: 'Email is Correct' })
-  //     console.log('Email is correct')
-  //   }
-  // }
  }
 
 

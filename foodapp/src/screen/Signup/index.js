@@ -40,16 +40,6 @@ class Signup extends Component {
     };
   }
 
-  // setData(type, value) {
-  //   switch (type) {
-  //     case ' firstname':
-  //       this.setState({firstname: value});
-  //       break;
-  //     case 'lastname':
-  //       this.setState({lastname: value});
-  //       break;
-  //   }
-  // }
   check_validate = () => {
     let firstnamerror,
       lastnamerror,
@@ -90,7 +80,6 @@ class Signup extends Component {
       });
       isValid = true;
     }
-
     if (isValid) {
       let obj = {
         firstname: this.state.firstname,
@@ -104,8 +93,6 @@ class Signup extends Component {
       this.props.navigation.navigate(Routes.Login);
     }
   };
-//Setkaha kiya h tune confirm password ka ??
-// no ku6 nahi kiya tere wait kar rahi thi tu kare fir me karungi....bdiyaa
   render() {
     return (
      <ScrollView>
