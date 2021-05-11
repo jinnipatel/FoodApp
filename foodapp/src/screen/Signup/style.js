@@ -6,17 +6,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#0C1B32'
     },
     action: {
-        flexDirection: 'row',
-        marginTop: 5,
+        flexDirection:'row',
+        marginTop:0,
         borderBottomWidth: 1,
         borderBottomColor: '#f2f2f2',
-        paddingBottom: 5,
+        paddingBottom:2,
     },
     header: {
-        flex: 1,
+        flex:1,
         justifyContent: 'flex-end',
-        paddingHorizontal: 20,
-        paddingBottom: 50
+        paddingHorizontal: 10,
+        paddingBottom:20
     },
     text_header: {
         color: '#fff',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     footer: {
-        flex: 9,
+        flex:10,
         backgroundColor: '#fff',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,

@@ -1,4 +1,4 @@
-import validate from 'validate.js';
+import validate from './validate';
 import Message from './MessageUtils';
 
 let constraints = {
@@ -20,7 +20,7 @@ let constraints = {
             message: Message.Errors.emailBlank
         },
         format: {
-            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            pattern:  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             message: Message.Errors.emailValidity,
         }
     },
@@ -38,16 +38,19 @@ let constraints = {
             message: Message.Errors.pwdBlank
         }
     },
-    phoneNo: {
+    phoneNo: {                                                     
         presence: {
             message: Message.Errors.phoneBlank
         },
         numericality: {
             notValid: Message.Errors.phoneInvalid
         },
+        format:{
+            pattern:/^[0]?[789]\d{9}$/,
+            message:Message.Errors.phoneInvalid,
+        },
         length: {
-            maximum: 15,
-            minimum: 6,
+            maximum: 10,
             tooLong: Message.Errors.phoneTooLong,
             tooShort: Message.Errors.phoneTooShort
         },

@@ -1,112 +1,137 @@
-import React, { Component } from 'react'
-import { StyleSheet, View, StatusBar, Text, Image, KeyboardAvoidingView, ScrollView } from 'react-native';
-import InputText from '../../component/InputText';
-import PickerExample from '../../component/PickerExample';
-import ButtonComp from '../../component/ButtonComp';
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  View,
+  StatusBar,
+  Text,
+  Image,
+  KeyboardAvoidingView,
+  ScrollView,
+} from 'react-native';
+import InputText from '../../component/ui/InputText/InputText';
+import PickerExample from '../../component/ui/Picker/PickerExample';
+import ButtonComp from '../../component/ui/Buttons/ButtonComp';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-import Fontisto from 'react-native-vector-icons/Fontisto'
-import styles from './style'
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import styles from './style';
 import Routes from '../../routes/routes';
-
-
+import {validation} from '../../utils/ValidationUtils';
 
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
       firstname: '',
-      isFirstvalidate: false,
       firstnamerror: '',
       lastname: '',
-      isLastvalidate: false,
       lastnamerror: '',
       email: '',
       emailError: '',
-      isEmailValidate: false,
-      phone: '',
-      isPhoneValidate: false,
+      phoneNo: '',
       phoneErrorValidation: '',
       password: '',
-      isPasswordValidation: false,
       PasswordError: '',
-      ConfirmPassword: '',
+      confirmPassword: '',
       ConPassword: '',
-      isConPassword: false
-
-    }
+    };
   }
 
-  allFieldValidation = () => {
-    const { firstname, lastname, email, phone, password, ConfirmPassword } = this.state
-    if (firstname == "") {
-      alert("Plz Fill UserName")
-      return false;
-    } else if (lastname == "") {
-      alert("Plz Fill LastName")
-      return false;
-    } else if (email == "") {
-      alert("Plz Fill Email")
-      return false;
-    } else if (phone == "") {
-      alert("Plz Fill Phone")
-      return false;
-    } else if (password == "") {
-      alert("Plz Fill Password")
-      return false;
-    } else if (ConfirmPassword == "") {
-      alert("Plz Fill ConfirmPassword")
-      return false;
+  setData(type, value) {
+    switch (type) {
+      case ' firstname':
+        this.setState({firstname: value});
+        break;
+      case 'lastname':
+        this.setState({lastname: value});
+        break;
     }
-    return true
   }
+  check_validate = () => {
+    let firstnamerror,
+      lastnamerror,
+      emailError,
+      phoneErrorValidation,
+      PasswordError,
+      isValid;
+    firstnamerror = validation('name', this.state.firstname);
+    lastnamerror = validation('name', this.state.lastname);
+    emailError = validation('email', this.state.email);
+    PasswordError = validation('password', this.state.password);
+    phoneErrorValidation = validation('phoneNo', this.state.phoneNo);
 
-  making_api_call_all_fields = () => {
-    if (this.allFieldValidation()) {
-      console.log('data from register - ', this.state.firstname, this.state.lastname, this.state.email, this.state.phone)
-      let signup_data = { firstName: this.state.firstname, lastName: this.state.lastname, email: this.state.email, phone: this.state.phone, password: this.state.password }
-      AsyncStorage.setItem('signup_data', JSON.stringify(signup_data));
-      alert("SuccessFully Signup")
+    if (
+      firstnamerror != null ||
+      lastnamerror != null ||
+      emailError != null ||
+      PasswordError != null
+    ) {
+      this.setState({
+        firstnamerror: firstnamerror,
+        lastnamerror: lastnamerror,
+        emailError: emailError,
+        PasswordError: PasswordError,
+        phoneErrorValidation: phoneErrorValidation,
+      });
+      isValid = false;
+    } else {
+      this.setState({
+        firstnamerror: '',
+        lastnamerror: '',
+        emailError: '',
+        phoneErrorValidation: '',
+        PasswordError: '',
+      });
+      isValid = true;
+    }
+
+    if (isValid) {
+      let obj = {
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        email: this.state.email,
+        phoneNo: this.state.phoneNo,
+        password: this.state.password,
+      };
+      AsyncStorage.setItem('signup_data', JSON.stringify(obj));
+      console.log(obj);
       this.props.navigation.navigate(Routes.Login);
     }
-  }
-
-
+  };
 
   render() {
     return (
-      // <ScrollView>
+     <ScrollView>
       <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.container}
-      >
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}>
         <View style={styles.container}>
-          <StatusBar backgroundColor='#0C1B32' barStyle="light-content" />
+          <StatusBar backgroundColor="#0C1B32" barStyle="light-content" />
           <View style={styles.header}>
-            <Text style={styles.text_header} > Register Now! </Text>
+            <Text style={styles.text_header}> Register Now! </Text>
           </View>
-          <Animatable.View style={styles.footer}
+          <Animatable.View
+            style={styles.footer}
             animation="fadeInUpBig"
-            iterationDelay={400} >
-
+            iterationDelay={400}>
             <View style={styles.action}>
               <FontAwesome
                 name="user-o"
                 color="#05375a"
                 size={20}
-                style={{ marginTop: 15 }}
+                style={{marginTop: 15}}
               />
-              <InputText placeholder="First Name" Iconname="person" onChangeText={(text) => { this.validateFirstName(text) }} />
-              {this.state.isFirstvalidate ? (
-                <Text style={{ color: 'green' }}>
-                  {this.state.firstnamerror}
-                </Text>
-              ) : (
-                <Text style={{ color: 'green' }}>{this.state.firstnamerror}</Text>
-              )}
+              <View style={{flexDirection:'column'}}>
+              <InputText
+                placeholder="First Name"
+                Iconname="person"
+                onChangeText={text => this.setState({firstname: text})}
+                value={this.state.firstname}
+              />
+              <Text>{this.state.firstnamerror}</Text>
+              </View>
             </View>
 
             <View style={styles.action}>
@@ -114,14 +139,17 @@ class Signup extends Component {
                 name="user-o"
                 color="#05375a"
                 size={20}
-                style={{ marginTop: 15 }}
+                style={{marginTop: 15}}
               />
-              <InputText placeholder="Last Name" Iconname="person" onChangeText={(text) => { this.validateLastName(text) }} />
-              {this.state.isLastvalidate ? (
-                <Text style={{ color: 'green' }}>{this.state.lastnamerror}</Text>
-              ) : (
-                <Text style={{ color: 'green' }}>{this.state.lastnamerror}</Text>
-              )}
+              <View style={{flexDirection:'column'}}>
+              <InputText
+                placeholder="Last Name"
+                Iconname="person"
+                onChangeText={text => this.setState({lastname: text})}
+                value={this.state.lastname}
+              />
+              <Text>{this.state.lastnamerror}</Text>
+              </View>
             </View>
 
             <View style={styles.action}>
@@ -129,16 +157,18 @@ class Signup extends Component {
                 name="email"
                 color="#05375a"
                 size={20}
-                style={{ marginTop: 15 }}
+                style={{marginTop: 15}}
               />
-              <InputText placeholder="Email" Iconname="email" onChangeText={(text) => { this.validate(text) }} />
-              {this.state.isEmailvalidate ? (
-                <Text style={{ color: 'green' }}>
-                  {this.state.emailError}
-                </Text>
-              ) : (
-                <Text style={{ color: 'green' }}>{this.state.emailError}</Text>
-              )}
+              <View style={{flexDirection:'column'}}>
+              <InputText
+                placeholder="Email"
+                Iconname="email"
+                onChangeText={text => this.setState({email: text})}
+                value={this.state.email}
+                error={this.state.emailError}
+              />
+              <Text>{this.state.emailError}</Text>
+              </View>
             </View>
 
             <View style={styles.action}>
@@ -146,16 +176,18 @@ class Signup extends Component {
                 name="phone"
                 color="#05375a"
                 size={20}
-                style={{ marginTop: 15 }}
+                style={{marginTop: 15}}
               />
-              <InputText placeholder="Number" Iconname="phone-android" onChangeText={(text) => { this.validatePhone(text) }} />
-              {this.state.isPhoneValidate ? (
-                <Text style={{ color: 'green' }}>
-                  {this.state.phoneErrorValidation}
-                </Text>
-              ) : (
-                <Text style={{ color: 'green' }}>{this.state.phoneErrorValidation}</Text>
-              )}
+              <View style={{flexDirection:'column'}}>
+              <InputText
+                placeholder="Number"
+                Iconname="phone-android"
+                onChangeText={text => this.setState({phoneNo: text})}
+                value={this.state.phoneNo}
+                error={this.state.phoneErrorValidation}
+              />
+              <Text>{this.state.phoneErrorValidation}</Text>
+              </View>
             </View>
 
             <View style={styles.action}>
@@ -163,10 +195,19 @@ class Signup extends Component {
                 name="lock"
                 color="#05375a"
                 size={20}
-                style={{ marginTop: 15 }}
+                style={{marginTop: 15}}
               />
-              <InputText placeholder="Password" Iconname="lock" secureTextEntry={true} onChangeText={(text) => { this.validatePassword(text) }} value={this.state.password} />
-              {this.state.isPasswordValidation ? (<Text style={{ color: 'green' }}>{this.state.PasswordError}</Text>) : (<Text style={{ color: 'green' }}>{this.state.PasswordError}</Text>)}
+              <View style={{flexDirection:'column'}}>
+              <InputText
+                placeholder="Password"
+                Iconname="lock"
+                secureTextEntry={true}
+                onChangeText={text => this.setState({password: text})}
+                value={this.state.password}
+                error={this.state.PasswordError}
+              />
+              <Text>{this.state.PasswordError}</Text>
+              </View>
             </View>
 
             <View style={styles.action}>
@@ -174,128 +215,36 @@ class Signup extends Component {
                 name="lock"
                 color="#05375a"
                 size={20}
-                style={{ marginTop: 15 }}
+                style={{marginTop: 15}}
               />
-              <InputText placeholder="Comfirm Password" Iconname="lock" secureTextEntry={true} value={this.state.ConfirmPassword} onChangeText={(value) => { this.checked_Password(value) }} />
-              {this.state.isConPassword ? (<Text style={{ color: 'green' }}>{this.state.ConPassword}</Text>) : (<Text style={{ color: 'green' }}>{this.state.ConPassword}</Text>)}
+              <View style={{flexDirection:'column'}}>
+              <InputText
+                placeholder="Comfirm Password"
+                Iconname="lock"
+                secureTextEntry={true}
+                value={this.state. confirmPassword}
+                onChangeText={text => this.setState({ confirmPassword: text})}
+                error={this.state.ConPassword}
+              />
+              <Text>{this.state.ConPassword}</Text>
+              </View>
             </View>
 
-            <View style={styles.action}>
+            {/* <View style={styles.action}>
               <Feather
                 name="flag"
                 color="#05375a"
                 size={20}
-                style={{ marginTop: 15 }}
+                style={{marginTop: 15}}
               />
               <PickerExample />
-            </View>
-            <ButtonComp name="sign-In" onPress={() => this.making_api_call_all_fields()} />
+            </View> */}
+            <ButtonComp name="sign-In" onPress={this.check_validate} />
           </Animatable.View>
-
-
-
         </View>
       </KeyboardAvoidingView>
-      // </ScrollView>
-    )
+    </ScrollView>
+    );
   }
-  validate = (text) => {
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (reg.test(text) === false) {
-      this.setState({ email: text, emailError: 'Email is not correct' })
-      return false;
-    } else {
-      this.setState({ email: text, emailError: 'Email is Correct' })
-    }
-  }
-  validatePhone = (text) => {
-    const reg = /^[0]?[789]\d{9}$/;
-    if (reg.test(text) === false) {
-      this.setState({
-        phone: text,
-        phoneErrorValidation: 'Invalid number',
-        isPhoneValidate: false
-      });
-      return false;
-    } else {
-      this.setState({
-        phone: text,
-        phoneErrorValidation: 'Valid number',
-        isPhoneValidate: true
-      });
-      return true;
-    }
-  }
-  validateFirstName = (text) => {
-    let reg = /^[a-zA-Z]*$/;
-    if (reg.test(text) === false) {
-      this.setState({
-        firstname: text,
-        firstnamerror: 'Invalid FirstName',
-        isFirstvalidate: true
-      })
-    } else {
-      this.setState({
-        firstname: text,
-        firstnamerror: 'Valid FirstName',
-        isFirstvalidate: true
-      })
-    }
-  }
-  validateLastName = (text) => {
-    let reg = /^[a-zA-Z]*$/;
-    if (reg.test(text) === false) {
-      this.setState({
-        lastname: text,
-        lastnamerror: 'Invalid LastName',
-        isLastvalidate: true
-      })
-    } else {
-      this.setState({
-        lastname: text,
-        lastnamerror: 'valid LastName',
-        isLastvalidate: true
-      })
-    }
-  }
-  validatePassword = (text) => {
-    let reg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,15}$/;
-    if (reg.test(text) == false) {
-      this.setState({
-        password: text,
-        PasswordError: 'Invalid Password',
-        isPasswordValidation: false,
-      });
-      return false;
-    } else {
-      this.setState({
-        password: text,
-        PasswordError: 'Valid Password',
-        isPasswordValidation: true
-      });
-    }
-
-  }
-
-  checked_Password = (value) => {
-    if ((this.state.password) == (this.state.ConfirmPassword)) {
-      this.setState({
-        ConfirmPassword: value,
-        ConPassword: 'not matched',
-        isConPassword: true
-      })
-    } else {
-      this.setState({
-        ConfirmPassword: value,
-        ConPassword: 'matched',
-        isConPassword: true
-      })
-    }
-  }
-
-
 }
-
-
-
 export default Signup;

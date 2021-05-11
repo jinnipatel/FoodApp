@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, TouchableOpacity, Text } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import styles from './style'
 
 
 export default class ButtonComp extends Component {
@@ -14,30 +15,6 @@ export default class ButtonComp extends Component {
     )
   }
 }
-const styles = StyleSheet.create({
-  button: {
-    width: 325,
-    height: 45,
-    marginLeft: 15,
-  },
-  gradient: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5
-  },
-  text: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  // signIn: {
-  //   width: 500,
-  //   height: 50,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   borderRadius: 10
-  // },
-})
+
 
 
