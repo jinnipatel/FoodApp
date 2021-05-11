@@ -1,7 +1,7 @@
 import {CommonActions} from '@react-navigation/routers';
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import ButtonComp from '../../component/ui/Buttons/ButtonComp';
+import {Button} from '../../component/index';
 import Routes from '../../routes/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -26,7 +26,7 @@ export class Home extends Component {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text> Home </Text>
-        <ButtonComp buttonText="Logout" onPress={()=>this.removeAuthentication()} />
+        <Button buttonText="Logout" onPress={()=>this.removeAuthentication()} />
       </View>
     );
   }

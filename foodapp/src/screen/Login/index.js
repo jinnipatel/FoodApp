@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { KeyboardAvoidingView, SafeAreaView, StatusBar, StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native'
-import ButtonComp from '../../component/ui/Buttons/ButtonComp'
-import InputText from '../../component/ui/InputText/InputText'
+import {Button} from '../../component/index'
+import {InputText} from '../../component/index'
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -24,23 +24,58 @@ class Login extends Component {
     }
   }
 
+ checked_filed = () =>{
+   let emailError,PasswordError,isValid;
+   emailError = validation("email",this.state.email)
+   PasswordError = validation("password",this.state.password)
+   if(emailError !=null || PasswordError !=null){
+     this.setState({
+       emailError:emailError,
+       PasswordError:PasswordError
+     });
+     isValid = false
+   }
+   else{
+     this.setState({
+       emailError:"",
+       PasswordError:""
+     })
+     isValid=true
+   }
+   if(isValid){
+     let obj = {
+         email:this.state.email,
+         password:this.state.password
+     };
+     this.props.navigation.navigate(Routes.Auth,{
+       email:this.state.email,
+       password:this.state.password
+     })
+   }
+ }
 
-  checked_filed = () => {
-    const { email, password,emailError } = this.state
-    if (email == "" || password == "") {
-      alert("please fill email && password ")
-      return false;
-    } else if (emailError != null) {
-      alert(emailError)
-       this.props.navigation.navigate(Routes.Login)
-    }else{
-      this.props.navigation.navigate(Routes.Auth, {
-        email: this.state.email,
-        password: this.state.password
-      });
-    }
-    return true;
-  }
+
+
+  // checked_filed = () => {
+  //   const { email, password,emailError,PasswordError } = this.state
+  //   if (email == "") {
+  //     alert("please fill email ")
+  //     return false;
+  //   }else if(password == ""){
+  //     alert("please Fill Password")
+  //   }
+  //    else if (emailError != null) {
+  //     alert("----",emailError)
+  //      this.props.navigation.navigate(Routes.Login)
+  //   }
+  //   else{
+  //     this.props.navigation.navigate(Routes.Auth, {
+  //       email: this.state.email,
+  //       password: this.state.password
+  //     });
+  //   }
+  //   return true;
+  // }
 
   making_api_call = () => {
     if (this.checked_filed()) {
@@ -54,7 +89,6 @@ class Login extends Component {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.container}
       >
-
         <View style={styles.container}>
           <StatusBar backgroundColor='#0C1B32' barStyle="light-content" />
           <View style={styles.header} >
@@ -73,7 +107,7 @@ class Login extends Component {
                 size={20} style={{ marginTop: 15 }} />
               <InputText placeholder="Email"  
               value={this.state.email}
-              onChangeText={text=>{this.setState({email:text,emailError:validation("email",this.state.email)})}}  />
+              onChangeText={text=>this.setState({email:text})}/>
               <Text>{this.state.emailError}</Text>
               {/* {this.state.isEmailvalidate ? (
                 <Text style={{ color: 'green' }}>
@@ -94,12 +128,12 @@ class Login extends Component {
               />
               <InputText placeholder="Password"
                 secureTextEntry={true}
-                onChangeText={text=>{this.setState({password:text,PasswordError:validation("password",this.state.password)})}}
-                value={this.state.password} />
+                onChangeText={text=>this.setState({password:text})} />
+                <Text>{this.state.PasswordError}</Text>
             </View>
             {/* <ButtonComp name="Signup" onPress={() => this.props.navigation.navigate('Signup')} />  */}
             <View style={styles.button}>
-              <ButtonComp
+              <Button
                 name="LogIn"
                 onPress={this.making_api_call} />
               <TouchableOpacity
@@ -110,8 +144,6 @@ class Login extends Component {
             </View>
           </Animatable.View>
         </View>
-
-
       </KeyboardAvoidingView>
     )
   }

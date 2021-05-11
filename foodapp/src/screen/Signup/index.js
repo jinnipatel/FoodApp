@@ -8,9 +8,9 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from 'react-native';
-import InputText from '../../component/ui/InputText/InputText';
-import PickerExample from '../../component/ui/Picker/PickerExample';
-import ButtonComp from '../../component/ui/Buttons/ButtonComp';
+ import {InputText} from '../../component/index';
+import {PickerExample} from '../../component/index';
+import {Button} from '../../component/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -18,7 +18,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import styles from './style';
 import Routes from '../../routes/routes';
-import {validation} from '../../utils/ValidationUtils';
+import {validation ,PasswordValidate} from '../../utils/ValidationUtils';
 
 class Signup extends Component {
   constructor(props) {
@@ -36,37 +36,39 @@ class Signup extends Component {
       PasswordError: '',
       confirmPassword: '',
       ConPassword: '',
+      confirmpasswordError :''
     };
   }
 
-  setData(type, value) {
-    switch (type) {
-      case ' firstname':
-        this.setState({firstname: value});
-        break;
-      case 'lastname':
-        this.setState({lastname: value});
-        break;
-    }
-  }
+  // setData(type, value) {
+  //   switch (type) {
+  //     case ' firstname':
+  //       this.setState({firstname: value});
+  //       break;
+  //     case 'lastname':
+  //       this.setState({lastname: value});
+  //       break;
+  //   }
+  // }
   check_validate = () => {
     let firstnamerror,
       lastnamerror,
       emailError,
       phoneErrorValidation,
-      PasswordError,
+      PasswordError,confirmpasswordError,
       isValid;
     firstnamerror = validation('name', this.state.firstname);
     lastnamerror = validation('name', this.state.lastname);
     emailError = validation('email', this.state.email);
     PasswordError = validation('password', this.state.password);
     phoneErrorValidation = validation('phoneNo', this.state.phoneNo);
-
+    confirmpasswordError = PasswordValidate(this.state.password,this.state.confirmPassword)
     if (
       firstnamerror != null ||
       lastnamerror != null ||
       emailError != null ||
-      PasswordError != null
+      PasswordError != null ||
+      confirmpasswordError != null
     ) {
       this.setState({
         firstnamerror: firstnamerror,
@@ -74,6 +76,7 @@ class Signup extends Component {
         emailError: emailError,
         PasswordError: PasswordError,
         phoneErrorValidation: phoneErrorValidation,
+        confirmpasswordError : confirmpasswordError
       });
       isValid = false;
     } else {
@@ -83,6 +86,7 @@ class Signup extends Component {
         emailError: '',
         phoneErrorValidation: '',
         PasswordError: '',
+        confirmpasswordError : ''
       });
       isValid = true;
     }
@@ -100,7 +104,8 @@ class Signup extends Component {
       this.props.navigation.navigate(Routes.Login);
     }
   };
-
+//Setkaha kiya h tune confirm password ka ??
+// no ku6 nahi kiya tere wait kar rahi thi tu kare fir me karungi....bdiyaa
   render() {
     return (
      <ScrollView>
@@ -226,10 +231,9 @@ class Signup extends Component {
                 onChangeText={text => this.setState({ confirmPassword: text})}
                 error={this.state.ConPassword}
               />
-              <Text>{this.state.ConPassword}</Text>
+              <Text>{this.state.confirmpasswordError}</Text>
               </View>
             </View>
-
             {/* <View style={styles.action}>
               <Feather
                 name="flag"
@@ -239,7 +243,7 @@ class Signup extends Component {
               />
               <PickerExample />
             </View> */}
-            <ButtonComp name="sign-In" onPress={this.check_validate} />
+            <Button name="sign-In" onPress={this.check_validate} />
           </Animatable.View>
         </View>
       </KeyboardAvoidingView>

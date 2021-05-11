@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import styles from './style'
 
 
-export default class ButtonComp extends Component {
+export default class Button extends Component {
   render() {
     return (
       <TouchableOpacity style={styles.button} onPress={this.props.onPress}>

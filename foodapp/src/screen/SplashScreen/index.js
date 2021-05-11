@@ -1,12 +1,8 @@
 import { CommonActions } from '@react-navigation/routers';
 import React from 'react';
 import {
-    StyleSheet,
     View,
     Text,
-    Image,
-    Dimensions,
-    Button,
     StatusBar,
     TouchableOpacity
 } from 'react-native';
