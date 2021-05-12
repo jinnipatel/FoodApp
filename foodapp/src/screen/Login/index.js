@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { KeyboardAvoidingView, SafeAreaView, StatusBar, StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native'
-import {Button} from '../../component/index'
+import {Button, Label} from '../../component/index'
 import {InputText} from '../../component/index'
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -9,6 +9,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import styles from './style'
 import Routes from '../../routes/routes';
 import { validation } from '../../utils/ValidationUtils';
+import { Color } from '../../utils/Color';
+
 
 
 class Login extends Component {
@@ -68,25 +70,31 @@ class Login extends Component {
         <View style={styles.container}>
           <StatusBar backgroundColor='#0C1B32' barStyle="light-content" />
           <View style={styles.header} >
-            <Text style={styles.text_header} > WelCome ! </Text>
+            {/* <Text style={styles.text_header} > WelCome ! </Text> */}
+            <Label xlarge color={Color.WHITE} >WelCome !</Label>
           </View>
 
           <Animatable.View style={styles.footer}
             animation="fadeInUpBig"
             iterationDelay={400}
           >
-            <Text style={styles.text_footer}>Email</Text>
+            {/* <Text style={styles.text_footer}>Email</Text> */}
+            <Label color={Color.BLUE}>Email</Label>
             <View style={styles.action}>
               <FontAwesome
                 name="user-o"
                 color="#05375a"
                 size={20} style={{ marginTop: 15 }} />
+              <View style={{flexDirection:'column'}}>  
               <InputText placeholder="Email"  
               value={this.state.email}
               onChangeText={text=>this.setState({email:text})}/>
-              <Text>{this.state.emailError}</Text>
+              {/* <Text>{this.state.emailError}</Text> */}
+              <Label xsmall color={Color.PURE_ORANGE}>{this.state.emailError}</Label>
+              </View>
             </View>
-            <Text style={styles.text_footer}>Password</Text>
+            {/* <Text style={styles.text_footer}>Password</Text> */}
+            <Label color={Color.BLUE}>Password</Label>
             <View style={styles.action}>
               <Feather
                 name="lock"
@@ -95,10 +103,13 @@ class Login extends Component {
                 style={{ marginTop: 15 }}
 
               />
+              <View style={{flexDirection:'column'}}>
               <InputText placeholder="Password"
                 secureTextEntry={true}
                 onChangeText={text=>this.setState({password:text})} />
-                <Text>{this.state.PasswordError}</Text>
+                {/* <Text>{this.state.PasswordError}</Text> */}
+                <Label xsmall coloe={Color.PURE_ORANGE}>{this.props.PasswordError}</Label>
+                </View> 
             </View>
             <View style={styles.button}>
               <Button
@@ -108,6 +119,7 @@ class Login extends Component {
                 onPress={() => this.props.navigation.navigate(Routes.Signup)}
                 style={styles.signup}>
                 <Text style={styles.button_text}>Sign Up</Text>
+                {/* <Label xlarge  color={Color.BLUE} >SIGN UP</Label> */}
               </TouchableOpacity>
             </View>
           </Animatable.View>

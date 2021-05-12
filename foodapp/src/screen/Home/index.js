@@ -1,9 +1,10 @@
 import {CommonActions} from '@react-navigation/routers';
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import { View} from 'react-native';
 import {Button} from '../../component/index';
 import Routes from '../../routes/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import {Label} from '../../component/index'
 
 export class Home extends Component {
 
@@ -25,8 +26,8 @@ export class Home extends Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text> Home </Text>
         <Button buttonText="Logout" onPress={()=>this.removeAuthentication()} />
+        <Label>Hello Jeenni</Label>
       </View>
     );
   }

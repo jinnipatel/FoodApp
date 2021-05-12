@@ -5,7 +5,7 @@ import styles from './style'
 const header = () => {
     return (
         <View>
-            <Text></Text>
+            
         </View>
     )
 }

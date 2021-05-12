@@ -12,6 +12,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from './style'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Routes from '../../routes/routes';
+import { Label } from '../../component';
+import {Color} from '../../utils/Color'
 
 
 class SplashScreen extends React.Component {
@@ -67,9 +69,10 @@ class SplashScreen extends React.Component {
                 <Animatable.View style={styles.footer}
                     animation="fadeInUpBig"
                     iterationDelay={400} >
-                    <Text style={styles.title}>Stay connected with everyone!</Text>
-                    <Text style={styles.text}>Sign in with account</Text>
-
+                    <Label bold xxlarge color={Color.BLUE}>Stay connected with everyone</Label>
+                    {/* <Text style={styles.title}>Stay connected with everyone!</Text> */}
+                    {/* <Text style={styles.text}>Sign in with account</Text> */}
+                    <Label lighter small color={Color.GREY}>Sign in with account</Label>
                     <View style={styles.button}>
                         <TouchableOpacity>
                             <LinearGradient
