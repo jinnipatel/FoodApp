@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
     },
     action: {
         flexDirection:'row',
-        marginTop:0,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
-        paddingBottom:2,
+        borderWidth:2,
+        borderRadius:50,
+        justifyContent:'center',
+        alignSelf:'center', 
+        marginTop:5
     },
     header: {
         flex:1,
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex:10,
+        marginTop:25,
         backgroundColor: '#fff',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
@@ -33,6 +35,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start'
     },
+    error_section:{
+        marginLeft:60
+    }
 })
 
 export default styles;

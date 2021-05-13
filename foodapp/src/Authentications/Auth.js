@@ -1,8 +1,10 @@
 import { CommonActions } from '@react-navigation/routers';
 import React, { Component } from 'react'
-import { TouchableOpacity, View, Text } from 'react-native'
+import { TouchableOpacity, View, Text, ActivityIndicator } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Routes from '../routes/routes';
+import { Loader } from '../component';
+import { Color } from '../utils/Color';
 
 
 export default class Auth extends Component {
@@ -60,14 +62,15 @@ export default class Auth extends Component {
 
         catch (error) {
             console.log(error)
-            debugger
-            alert(error)
+            // debugger
+            alert("no account")
+            this.props.navigation.navigate(Routes.Login);  
         }
     }
     render() {
         return (
-            <View>
-
+            <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
+             <Loader size="large" color={Color.DARK_MODERATE_BLUE}/>
             </View>
         )
     }

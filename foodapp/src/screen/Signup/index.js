@@ -8,7 +8,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from 'react-native';
- import {InputText} from '../../component/index';
+ import {InputText, Label} from '../../component/index';
 import {PickerExample} from '../../component/index';
 import {Button} from '../../component/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -19,6 +19,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import styles from './style';
 import Routes from '../../routes/routes';
 import {validation ,PasswordValidate} from '../../utils/ValidationUtils';
+import { Color } from '../../utils/Color';
 
 class Signup extends Component {
   constructor(props) {
@@ -100,7 +101,7 @@ class Signup extends Component {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.container}>
         <View style={styles.container}>
-          <StatusBar backgroundColor="#0C1B32" barStyle="light-content" />
+          {/* <StatusBar backgroundColor="#0C1B32" barStyle="light-content" /> */}
           <View style={styles.header}>
             <Text style={styles.text_header}> Register Now! </Text>
           </View>
@@ -113,45 +114,51 @@ class Signup extends Component {
                 name="user-o"
                 color="#05375a"
                 size={20}
-                style={{marginTop: 15}}
+                style={{alignSelf: 'center', marginStart: 20}}
               />
-              <View style={{flexDirection:'column'}}>
+              
               <InputText
                 placeholder="First Name"
                 Iconname="person"
                 onChangeText={text => this.setState({firstname: text})}
                 value={this.state.firstname}
               />
-              <Text>{this.state.firstnamerror}</Text>
-              </View>
             </View>
+               
+              <View style={styles.error_section}>
+              {/* <Text>{this.state.firstnamerror}</Text> */}
+              <Label xsmall color={Color.PURE_ORANGE} >{this.state.firstnamerror}</Label>
+              </View>
 
             <View style={styles.action}>
               <FontAwesome
                 name="user-o"
                 color="#05375a"
                 size={20}
-                style={{marginTop: 15}}
+                style={{alignSelf: 'center', marginStart: 20}}
               />
-              <View style={{flexDirection:'column'}}>
+            
               <InputText
                 placeholder="Last Name"
                 Iconname="person"
                 onChangeText={text => this.setState({lastname: text})}
                 value={this.state.lastname}
               />
-              <Text>{this.state.lastnamerror}</Text>
               </View>
-            </View>
+              <View style={styles.error_section}>
+              {/* <Text>{this.state.lastnamerror}</Text> */}
+              <Label xsmall color={Color.PURE_ORANGE}>{this.state.lastnamerror}</Label>
+              </View>
+            
 
             <View style={styles.action}>
               <Fontisto
                 name="email"
                 color="#05375a"
                 size={20}
-                style={{marginTop: 15}}
+                style={{alignSelf: 'center', marginStart: 20}}
               />
-              <View style={{flexDirection:'column'}}>
+            
               <InputText
                 placeholder="Email"
                 Iconname="email"
@@ -159,18 +166,21 @@ class Signup extends Component {
                 value={this.state.email}
                 error={this.state.emailError}
               />
-              <Text>{this.state.emailError}</Text>
               </View>
-            </View>
+              <View style={styles.error_section}>
+              {/* <Text>{this.state.emailError}</Text> */}
+              <Label xsmall color={Color.PURE_ORANGE}>{this.state.emailError}</Label>
+              </View>
+            
 
             <View style={styles.action}>
               <Feather
                 name="phone"
                 color="#05375a"
                 size={20}
-                style={{marginTop: 15}}
+                style={{alignSelf: 'center', marginStart: 20}}
               />
-              <View style={{flexDirection:'column'}}>
+             
               <InputText
                 placeholder="Number"
                 Iconname="phone-android"
@@ -178,18 +188,21 @@ class Signup extends Component {
                 value={this.state.phoneNo}
                 error={this.state.phoneErrorValidation}
               />
-              <Text>{this.state.phoneErrorValidation}</Text>
               </View>
-            </View>
+               <View style={styles.error_section}>
+              {/* <Text>{this.state.phoneErrorValidation}</Text> */}
+              <Label xsmall color={Color.PURE_ORANGE} >{this.state.phoneErrorValidation}</Label>
+              </View>
+            
 
             <View style={styles.action}>
               <Feather
                 name="lock"
                 color="#05375a"
                 size={20}
-                style={{marginTop: 15}}
+                style={{alignSelf: 'center', marginStart: 20}}
               />
-              <View style={{flexDirection:'column'}}>
+             
               <InputText
                 placeholder="Password"
                 Iconname="lock"
@@ -198,18 +211,21 @@ class Signup extends Component {
                 value={this.state.password}
                 error={this.state.PasswordError}
               />
-              <Text>{this.state.PasswordError}</Text>
+               </View>
+              <View style={styles.error_section}>
+              {/* <Text>{this.state.PasswordError}</Text> */}
+              <Label xsmall color={Color.PURE_ORANGE} >{this.state.PasswordError}</Label>
               </View>
-            </View>
+           
 
             <View style={styles.action}>
               <Feather
                 name="lock"
                 color="#05375a"
                 size={20}
-                style={{marginTop: 15}}
+                style={{alignSelf: 'center', marginStart: 20}}
               />
-              <View style={{flexDirection:'column'}}>
+             
               <InputText
                 placeholder="Comfirm Password"
                 Iconname="lock"
@@ -218,19 +234,24 @@ class Signup extends Component {
                 onChangeText={text => this.setState({ confirmPassword: text})}
                 error={this.state.ConPassword}
               />
-              <Text>{this.state.confirmpasswordError}</Text>
               </View>
-            </View>
-            {/* <View style={styles.action}>
+               <View style={styles.error_section}>
+               {/* <Text>{this.state.confirmpasswordError}</Text> */}
+               <Label xsmall color={Color.PURE_ORANGE} >{this.state.confirmpasswordError}</Label>
+               </View>
+            
+            <View style={styles.action}>
               <Feather
                 name="flag"
                 color="#05375a"
                 size={20}
-                style={{marginTop: 15}}
+                style={{alignSelf: 'center', marginStart: 20}}
               />
               <PickerExample />
-            </View> */}
+            </View>
+            <View style={{marginTop:20}}>
             <Button name="sign-In" onPress={this.check_validate} />
+            </View> 
           </Animatable.View>
         </View>
       </KeyboardAvoidingView>

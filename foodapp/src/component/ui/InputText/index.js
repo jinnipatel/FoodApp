@@ -6,7 +6,7 @@ import styles from './style'
 class InputText extends Component {
     render() {
         return (
-            <View>
+           
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.textInput}
                         placeholder={this.props.placeholder}
@@ -18,7 +18,7 @@ class InputText extends Component {
                         placeholderTextColor={this.props.placeholderTextColor}
                       />
                 </View>
-            </View>
+            
         )
     }
 }

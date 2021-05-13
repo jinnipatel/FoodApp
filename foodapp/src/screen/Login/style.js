@@ -38,24 +38,26 @@ const styles = StyleSheet.create({
 
     },
     action: {
-        flexDirection: 'row',
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
-        paddingBottom: 5,
+        
+        flexDirection:'row',
+        borderWidth:2,
+        borderRadius:50,
+        justifyContent:'center',
+        alignSelf:'center',        
     },
     button: {
         alignItems: 'center',
-        marginTop: 5
+        marginTop: 10
     },
     signup: {
-        width: 325,
-        height: 45,
-        marginLeft: 15,
-        borderColor: '#009387',
-        borderWidth: 1,
+        // width: 325,
+        // height: 45,
+        marginLeft:10,
+        marginRight:20,
+        // borderColor: '#009387',
+        // borderWidth: 1,
         marginTop: 15,
-        borderRadius: 5,
+        // borderRadius: 5,
     },
     button_text: {
         textAlign: 'center',

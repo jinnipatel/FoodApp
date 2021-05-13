@@ -12,7 +12,7 @@ const NotAuthenticated = () =>{
     <Stack.Navigator>
         <Stack.Screen name={Routes.Login} component={Login} options={{ headerShown: false }}/>
         <Stack.Screen name={Routes.Signup} component={Signup} options={{ headerShown: false }}/>
-        <Stack.Screen name={Routes.Auth}  component={Auth} />
+        <Stack.Screen name={Routes.Auth}  component={Auth} options={{headerShown:false}} />
     </Stack.Navigator>
     )
 
