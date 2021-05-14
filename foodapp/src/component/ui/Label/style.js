@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Color } from "../../../utils/Color";
 
 const styles = StyleSheet.create({
     valueContainer:{
@@ -7,17 +8,17 @@ const styles = StyleSheet.create({
     label:{
         marginVertical:8,        
         fontSize:15,
-        color:'#a5a5a5'
+        color:Color.DARK_GRAY
       },
       value:{
         fontSize:20,
         paddingBottom:10,
         borderBottomWidth:1,
-        color:'#fff',                       
-        borderBottomColor:'#dddddd'
+        color:Color.WHITE,                       
+        borderBottomColor:Color.GAINSBORO
       },
     text: {
-        color: '#05375a',
+        color:Color.BLUE,
         fontSize: 18,
     },
 })

@@ -1,11 +1,10 @@
 import { StyleSheet } from "react-native";
+import { Color } from "../../../utils/Color";
 
 const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
-        // marginVertical: 10,
-        borderBottomColor: '#000',
-        // marginTop: 15,
+        borderBottomColor:Color.BLACK,
         width: 280,
         height: 40,
     },
@@ -16,10 +15,20 @@ const styles = StyleSheet.create({
     textInput: {
         flex: 1,
         marginTop: Platform.OS === 'ios' ? 0 : -12,
-        color: '#05375a',
+        color:Color.BLUE,
         marginLeft:50,
         marginTop: 5
     },
+    errorIcon:{
+        marginTop:15,
+        marginRight:20,
+        color:'red'
+    },
+    eyeIcon:{
+        marginTop:15,
+        marginRight:20,
+        color:"#a5a5a5"
+    }
 
 })
 export default styles

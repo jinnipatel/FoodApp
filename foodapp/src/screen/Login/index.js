@@ -1,25 +1,25 @@
 import React, {Component} from 'react';
 import {
   KeyboardAvoidingView,
-  SafeAreaView,
   StatusBar,
-  StyleSheet,
   View,
-  Image,
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Button, Label, RoundButton, Section, SocialButton} from '../../component/index';
+import {
+  Button,
+  Label,
+  Section,
+  SocialButton,
+} from '../../component/index';
 import {InputText} from '../../component/index';
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import styles from './style';
 import Routes from '../../routes/routes';
 import {validation} from '../../utils/ValidationUtils';
 import {Color} from '../../utils/Color';
-
 
 class Login extends Component {
   constructor(props) {
@@ -84,12 +84,13 @@ class Login extends Component {
             <View style={styles.action}>
               <FontAwesome
                 name="user-o"
-                color="#05375a"
+                color={Color.BLUE}
                 size={20}
                 style={{alignSelf: 'center', marginStart: 20}}
               />
               <InputText
                 placeholder="Email"
+                placeholderTextColor={Color.BLACK}
                 value={this.state.email}
                 onChangeText={text => this.setState({email: text})}
               />
@@ -104,14 +105,16 @@ class Login extends Component {
             <View style={styles.action}>
               <Feather
                 name="lock"
-                color="#05375a"
+                color={Color.BLUE}
                 size={20}
                 style={{alignSelf: 'center', marginStart: 20}}
               />
               <InputText
                 placeholder="Password"
+                placeholderTextColor={Color.BLACK}
                 secureTextEntry={true}
                 onChangeText={text => this.setState({password: text})}
+                
               />
             </View>
 
@@ -127,29 +130,31 @@ class Login extends Component {
 
             <View
               style={{
-                marginLeft: 20,
+                marginLeft:50,
                 flexDirection: 'row',
                 justifyContent: 'space-around',
               }}>
+
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate(Routes.Signup)}
                 style={styles.signup}>
                 <Text style={styles.button_text}>Register Now</Text>
               </TouchableOpacity>
+              <View style={{marginLeft:50}}>
               <TouchableOpacity style={styles.signup}>
                 <Text style={styles.button_text}>Forgot Password?</Text>
               </TouchableOpacity>
-            </View>
-
-            <Section />
-
-            <View style={{marginTop:10}}>            
-              <SocialButton name="SignUp With Facebook"/>
-            </View>  
-              <View style={{marginTop:10}}>
-               <SocialButton name="SignUp With Google"/>
               </View>
-            
+            </View>
+            <View style={{marginLeft:2}}>
+            <Section />
+            </View>
+            <View style={{marginTop: 10}}>
+              <SocialButton name="SignUp With Facebook" />
+            </View>
+            <View style={{marginTop: 10}}>
+              <SocialButton name="SignUp With Google" />
+            </View>
           </Animatable.View>
         </View>
       </KeyboardAvoidingView>

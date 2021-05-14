@@ -7,7 +7,7 @@ const Drawer = createDrawerNavigator();
 
 export default function DrawerScreen(){
     return(
-        <Drawer.Navigator drawerPosition="right">
+        <Drawer.Navigator >
             <Drawer.Screen name={Routes.Home} component={Home}/>
         </Drawer.Navigator>
     )

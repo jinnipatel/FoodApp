@@ -16,6 +16,8 @@ export const Color = {
     DARK_BLUE:'#182b56',
     BLUE_MAGENTA:'#6f6e92',
     BLUE:"#05375a",
-    GREY:"grey"
+    GREY:"grey",
+    GAINSBORO:"#dddddd",
+    AVOCADO:"#6f6e92"
    
 };
