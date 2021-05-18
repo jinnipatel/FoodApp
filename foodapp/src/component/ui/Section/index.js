@@ -6,7 +6,7 @@ const Section = () => {
   return (
     <View style={styles.container}>
       <View style={styles.line}></View>
-      <Text style={styles.text}>or</Text>
+      <Text style={styles.text}>OR</Text>
       <View style={styles.line}></View>
     </View>
   );

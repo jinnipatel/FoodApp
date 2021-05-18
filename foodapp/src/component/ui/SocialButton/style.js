@@ -2,22 +2,31 @@ import {StyleSheet} from 'react-native';
 import {Color} from '../../../utils/Color';
 
 const styles = StyleSheet.create({
-  button: {
-    width: 325,
-    height: 45,
-    marginLeft: 25,
+  button:{
+    flexDirection:'row',
+    height:50,
+    width:175,
+    borderRadius:14,
+    justifyContent:'center',
+    alignItems:'center',
+    marginTop:10,
+    borderWidth:1,
+    borderColor:Color.DARK_GRAY,
+    // marginLeft:5
   },
-  gradient: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 25,
+  image:{
+    width:25,
+    height:20,
   },
-  text: {
-    color: Color.WHITE,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
+  text:{
+    marginStart:25,
+    fontWeight:'bold',
+    fontSize:18,
+    letterSpacing:1,
+    color:Color.BLACK,
+    
+  }
+  
 });
 
 export default styles;

@@ -5,6 +5,7 @@ import Routes from './routes'
 import Signup from '../screen/Signup'
 import Auth from '../Authentications/Auth';
 import Onborading from '../screen/Onborading';
+import ForgotPassword from '../screen/ForgotPassword';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ const NotAuthenticated = () =>{
         <Stack.Screen name={Routes.Login} component={Login} options={{ headerShown: false }}/>
         <Stack.Screen name={Routes.Signup} component={Signup} options={{ headerShown: false }}/>
         <Stack.Screen name={Routes.Auth}  component={Auth} options={{headerShown:false}} />
+        <Stack.Screen name={Routes.ForgotPassword} component={ForgotPassword} options={{headerShown:false}}/>
     </Stack.Navigator>
     )
 

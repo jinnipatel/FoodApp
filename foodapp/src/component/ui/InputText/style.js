@@ -4,20 +4,26 @@ import { Color } from "../../../utils/Color";
 const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
-        borderBottomColor:Color.BLACK,
-        width: 280,
-        height: 40,
+        marginTop:10,
+        borderColor:Color.BLACK,
+        borderRadius:14,
+        borderWidth:2,
+        height:50,
+        width:360,
+        marginLeft:5
     },
-    iconStyle: {
-        marginRight: 20,
-        marginTop: 5
+    iconstyle:{
+        marginTop: 15,
+        marginLeft: 20,
+        position: 'absolute',
+        fontSize: 20,
+        color: '#28388f',
     },
     textInput: {
-        flex: 1,
-        marginTop: Platform.OS === 'ios' ? 0 : -12,
-        color:Color.BLUE,
-        marginLeft:50,
-        marginTop: 5
+        paddingLeft:60,
+        flex:1,
+        fontSize:20,
+        color: '#6f6e92'
     },
     errorIcon:{
         marginTop:15,

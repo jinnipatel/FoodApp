@@ -14,6 +14,7 @@ import EntypoIcon from 'react-native-vector-icons/Entypo'
 import Routes from '../../routes/routes';
 import {Label} from '../../component'
 import styles from './style'
+import { Color } from '../../utils/Color';
 
 
 
@@ -54,7 +55,7 @@ const AppIntroScreen = ({navigation}) => {
           name="chevron-right"
           color="rgba(255, 255, 255, .9)"
           size={30}
-          style={{color:"blue"}}
+          style={{color:Color.BLUE}}
         />
       </View>
     );
@@ -69,7 +70,7 @@ const AppIntroScreen = ({navigation}) => {
           color="rgba(255, 255, 255, .9)"
           size={30}
 
-          style={{color:"blue",fontWeight:'bolder'}}
+          style={{color:Color.BLUE,fontWeight:'bolder'}}
         />
       </View>
       </TouchableOpacity>
@@ -81,7 +82,7 @@ const AppIntroScreen = ({navigation}) => {
       <View
         style={{
           flex: 1,                
-          backgroundColor:"#ffffff",
+          backgroundColor:Color.WHITE,
           alignItems: 'center',
           justifyContent: 'space-around',
           paddingBottom: 100,

@@ -7,8 +7,8 @@ import styles from './style'
 export default class Button extends Component {
   render() {
     return (
-      <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
-        <LinearGradient colors={['#0C1B32', '#01ab9d']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={styles.gradient}>
+      <TouchableOpacity  style={{alignItems:'center'}} onPress={this.props.onPress}>
+        <LinearGradient colors={['#00d2ff', '#182b56']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={styles.button}>
           <Text style={styles.text} >{this.props.name}</Text>
         </LinearGradient>
       </TouchableOpacity>

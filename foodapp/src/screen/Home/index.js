@@ -1,7 +1,7 @@
 import {CommonActions} from '@react-navigation/routers';
 import React, {Component} from 'react';
 import { View} from 'react-native';
-import {Button, Header, Loader, RoundButton} from '../../component/index';
+import {Button, Header, IconButton, Loader, RoundButton, Toast} from '../../component/index';
 import Routes from '../../routes/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {Label} from '../../component/index'
@@ -37,7 +37,9 @@ export class Home extends Component {
         <Button buttonText="Logout" onPress={()=>this.removeAuthentication()} />
         <Label color={Color.BLACK}>Hello Jeenni</Label>
         <RoundButton  mt={20}  xsmall >Hello I'm Round Button</RoundButton>
-      </View>
+        <IconButton  text="Update"     btn_xl  backgroundColor={Color.PURE_ORANGE} image={require("../../assets/Img/facebook.png") }/>
+        {/* <Toast /> */}
+      </View> 
       </View>
     );
   }

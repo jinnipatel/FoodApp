@@ -49,8 +49,8 @@ export default class Auth extends Component {
             let parsed = JSON.parse(user);
             console.log(this.state.email + '--' + this.state.password)
             console.log('data from auth parsed-- ', parsed.email, parsed.password)
-
-            if (parsed.email === this.state.email && parsed.password === this.state.password) {
+            // && parsed.password === this.state.password
+            if (parsed.email === this.state.email) {
                 // debugger
                 this.props.navigation.dispatch(this.resetToAuth)
             } else {

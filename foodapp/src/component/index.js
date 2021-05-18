@@ -8,7 +8,8 @@ import RoundButton from './ui/RoundButton/index'
 import Ripple from './ui/Ripple/index'
 import Loader from './ui/Loader/index'
 import SocialButton from './ui/SocialButton/index'
-
+import IconButton from './ui/IconButton/index'
+import Toast from './ui/Toast/index'
 
 
 
@@ -22,6 +23,8 @@ export {
     RoundButton,
     Ripple,
     Loader,
-    SocialButton
+    SocialButton,
+    IconButton,
+    Toast
     
 }

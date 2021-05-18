@@ -1,10 +1,23 @@
 import { StyleSheet } from 'react-native'
+import { Color } from '../../utils/Color';
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#0C1B32'
+    MainContainer:{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center', 
     },
+    linerGradient:{
+        width:'100%',
+        height:'100%',
+        opacity:0.95,
+        justifyContent:'center',
+        alignItems:'center'
+     },
+    // container: {
+    //     flex: 1,
+    //     backgroundColor: '#0C1B32'
+    // },
     action: {
         flexDirection:'row',
         borderWidth:2,
@@ -13,27 +26,23 @@ const styles = StyleSheet.create({
         alignSelf:'center', 
         marginTop:5
     },
-    header: {
-        flex:1,
-        justifyContent: 'flex-end',
-        paddingHorizontal: 10,
-        paddingBottom:20
-    },
-    text_header: {
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 30
-    },
+    // header: {
+    //     flex:1,
+    //     justifyContent: 'flex-end',
+    //     paddingHorizontal: 10,
+    //     paddingBottom:20
+    // },
+    // text_header: {
+    //     color: '#fff',
+    //     fontWeight: 'bold',
+    //     fontSize: 30
+    // },
     footer: {
-        flex:10,
-        marginTop:25,
-        backgroundColor: '#fff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        paddingHorizontal: 20,
-        paddingVertical: 30,
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start'
+        height:560,
+        width:'100%',
+        paddingHorizontal:20,
+        backgroundColor:Color.WHITE,
+        borderRadius:12,
     },
     error_section:{
         marginLeft:60

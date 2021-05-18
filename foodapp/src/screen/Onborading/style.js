@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
+import { Color } from "../../utils/Color";
 import ThemeUtils from "../../utils/ThemeUtils";
 
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor:Color.WHITE,
       alignItems: 'center',
       padding: 10,
       justifyContent: 'center',
@@ -30,14 +31,13 @@ const styles = StyleSheet.create({
       // color: 'white',
       textAlign: 'center',
       paddingVertical: 30,
-      color:'#28388f'
+      color:Color.MEDIUM_DARK_BLUE
   
     },
     introTitleStyle: {
       fontSize: 25,
       // color: 'white',
-      color:'#28388f',
-  
+      color:Color.MEDIUM_DARK_BLUE,
       textAlign: 'center',
       marginBottom: 16,
       fontWeight: 'bold',

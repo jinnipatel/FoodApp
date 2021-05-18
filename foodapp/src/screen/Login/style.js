@@ -1,31 +1,41 @@
 import { StyleSheet } from 'react-native'
+import { Color } from '../../utils/Color';
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#0C1B32'
+    Maincontainer:{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
     },
-    header: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        paddingHorizontal: 20,
-        paddingBottom: 50
+    linerGradient:{
+       width:'100%',
+       height:'100%',
+       opacity:0.95,
+       justifyContent:'center',
+       alignItems:'center'
     },
-    gradient: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 5
-    },
+    // container: {
+    //     flex: 1,
+    //     backgroundColor: '#0C1B32'
+    // },
+    // header: {
+    //     flex: 1,
+    //     justifyContent: 'flex-end',
+    //     paddingHorizontal: 20,
+    //     paddingBottom: 50
+    // },
+    // gradient: {
+    //     flex: 1,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     borderRadius: 5
+    // },
     footer: {
-        flex: 3,
-        backgroundColor: '#fff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        paddingHorizontal: 20,
-        paddingVertical: 30,
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start'
+        height:560,
+        width:'100%',
+        paddingHorizontal:10,
+        backgroundColor:Color.WHITE,
+        borderRadius:12,
     },
     text_header: {
         color: '#fff',
@@ -46,24 +56,19 @@ const styles = StyleSheet.create({
         alignSelf:'center',        
     },
     button: {
-        alignItems: 'center',
-        marginTop: 10
+        // alignItems: 'center',
+        marginTop:10,
+        marginRight:6
     },
     signup: {
-        // width: 325,
-        // height: 45,
-        marginLeft:10,
-        marginRight:20,
-        // borderColor: '#009387',
-        // borderWidth: 1,
-        marginTop: 15,
-        // borderRadius: 5,
+        // marginLeft:10,
+        // marginRight:20,
+        // marginTop: 15,
+        // marginTop:10
     },
     button_text: {
-        textAlign: 'center',
-        color: '#009387',
+        color:'#009387',
         fontSize: 20,
-        marginTop: 5,
         fontWeight: 'bold'
 
     }

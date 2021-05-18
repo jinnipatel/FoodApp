@@ -14,10 +14,12 @@ export const Color = {
     LIME_GREEN:'#edffec',
     ALICE_BLUE:'#f2f4f5',
     DARK_BLUE:'#182b56',
+    MEDIUM_DARK_BLUE:"#28388f",
     BLUE_MAGENTA:'#6f6e92',
     BLUE:"#05375a",
     GREY:"grey",
     GAINSBORO:"#dddddd",
-    AVOCADO:"#6f6e92"
+    AVOCADO:"#6f6e92",
+    DARK_CYAN:"#009387"
    
 };
