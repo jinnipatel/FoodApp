@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         borderRadius:14,
         borderWidth:2,
         height:50,
-        width:360,
+        width:325,
         marginLeft:5
     },
     iconstyle:{

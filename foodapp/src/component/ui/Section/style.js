@@ -3,7 +3,7 @@ import {Color} from '../../../utils/Color';
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical:0,
+    // marginVertical:0,
     flexDirection: 'row',
     justifyContent:'space-evenly',
     alignItems: 'center',
@@ -11,14 +11,14 @@ const styles = StyleSheet.create({
   },
   line: {
     height: 2,
-    width:'35%',
+    width:'45%',
     backgroundColor: Color.DARK_GRAY,
   },
   text: {
-    fontSize: 20,
+    fontSize: 14,
     justifyContent:'space-around',
     margin:5,
-    marginHorizontal:10
+    // marginHorizontal:10
   },
 });
 export default styles;

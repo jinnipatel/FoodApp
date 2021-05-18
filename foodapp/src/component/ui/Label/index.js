@@ -47,6 +47,9 @@ export class Label extends React.Component {
         else
             stylesArray.push({ fontFamily: "Roboto-Regular" });
 
+        if(this.props.border)
+            stylesArray.push({borderBottomWidth:2})    
+
         stylesArray.push({
             color: this.props.color,
             marginTop: this.props.mt,
@@ -54,6 +57,7 @@ export class Label extends React.Component {
             marginStart: this.props.ms,
             marginEnd: this.props.me,
             textAlign: this.props.align,
+            border:this.props.border
         });
         stylesArray.push(this.props.style);
         return (
@@ -79,6 +83,7 @@ Label.defaultProps = {
     color: Color.TEXT_PRIMARY,
     roboto_regular: false,
     roboto_medium: false,
+    border:false,
     mt: 0,
     mb: 0,
     ms: 0,
@@ -99,6 +104,7 @@ Label.propTypes = {
     color: PropTypes.string,
     roboto_medium: PropTypes.bool,
     roboto_regular: PropTypes.bool,
+    border:PropTypes.number,
     mt: PropTypes.number,
     mb: PropTypes.number,
     ms: PropTypes.number,

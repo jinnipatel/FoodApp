@@ -104,7 +104,7 @@ class Signup extends Component {
       <SafeAreaView style={styles.MainContainer}>
    
       <LinearGradient
-          colors={[Color.PALE_VIOLET, Color.LIGHT_ORANGE]}
+          colors={[Color.JUNGLE_GREEN, Color.JELLY_BEAN]}
           start={{x: 0, y: 1}}
           end={{x: 1, y: 0}}
           style={styles.linerGradient}>
@@ -116,15 +116,24 @@ class Signup extends Component {
               animation="fadeInUpBig"
               iterationDelay={400}>
              
+                <View style={{flexDirection:'row',justifyContent:'space-around',marginTop:20}}>
+                  <TouchableOpacity onPress={()=>{this.props.navigation.push(Routes.Login)}}>
+                  <Label xlarge ms={35} color={Color.DARK_BLUE}>Login</Label>
+                  </TouchableOpacity>
+                  <View style={{borderBottomWidth:4,borderBottomColor:"#62b34c",width:"40%", paddingBottom:10}}>
+                  <Label xlarge ms={30} color={Color.DARK_MODERATE_BLUE} >SignUp</Label>
+                  </View>
+                </View>
+                 
                 {/* <FontAwesome
                   name="user-o"
                   color={Color.BLUE}
                   size={20}
                   style={{alignSelf: 'center', marginStart: 20}}
                 /> */}
-               <Label xxlarge ms={60} mt={30} bold  color={Color.DARK_CYAN}> Registered Now</Label>
+               <Label xxlarge  mt={20} bold  color={Color.DARK_MODERATE_BLUE}> Registered Now</Label>
 
-                <View style={{marginTop:50}}>
+                <View style={{marginTop:25}}>
                 <InputText
                   name="person"
                   placeholder="First Name"
@@ -239,7 +248,7 @@ class Signup extends Component {
                 <Button name="sign-In" onPress={this.check_validate} />
               </View>
               <View style={{marginTop:40,justifyContent:'center',alignItems:'center'}}>
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate(Routes.Login)}>
+                <TouchableOpacity onPress={()=>this.props.navigation.push(Routes.Login)}>
                 <Label color={Color.DARK_CYAN}>Already have account ? Login</Label>
                 </TouchableOpacity>
               </View>

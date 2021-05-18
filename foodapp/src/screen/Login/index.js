@@ -66,86 +66,121 @@ class Login extends Component {
     return (
       <SafeAreaView style={styles.Maincontainer}>
         <LinearGradient
-          colors={[Color.PALE_VIOLET, Color.LIGHT_ORANGE]}
+          colors={[Color.JUNGLE_GREEN, Color.JELLY_BEAN]}
           start={{x: 0, y: 1}}
           end={{x: 1, y: 0}}
           style={styles.linerGradient}>
           <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}> 
-              <Animatable.View
-                style={styles.footer}
-                animation="fadeInUpBig"
-                iterationDelay={400}>
-                <Label color={Color.BLACK} mt={20} xxlarge>
-                  Welcome
-                </Label>
-                <Label color={Color.DARK_GRAY} mt={10} mb={10}>
-                  Enter Your Email Id To Proceed
-                </Label>
-                <InputText
-                  placeholder="Email"
-                  name="email"
-                  placeholderTextColor={Color.BLACK}
-                  value={this.state.email}
-                  onChangeText={text => this.setState({email: text})}
-                />
-                <View style={{marginLeft: 20}}>
-                  <Label xsmall ml={60} color={Color.PURE_ORANGE}>
-                    {this.state.emailError}
-                  </Label>
-                </View>
-                <InputText
-                  placeholder="Password"
-                  name="lock"
-                  placeholderTextColor={Color.BLACK}
-                  secureTextEntry={true}
-                  onChangeText={text => this.setState({password: text})}
-                />
-                <View style={{marginLeft: 20}}>
-                  <Label xsmall color={Color.PURE_ORANGE}>
-                    {this.state.PasswordError}
-                  </Label>
-                </View>
-                <View style={styles.button}>
-                  <Button name="LogIn" onPress={this.making_api_call} />
-                </View>
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <Animatable.View
+              style={styles.footer}
+              animation="fadeInUpBig"
+              iterationDelay={400}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-around',
+                  marginTop: 20,
+                }}>
                 <View
                   style={{
-                    flexDirection: 'row',
-                    // justifyContent: 'space-evenly',
-                    marginHorizontal:10,
-                    justifyContent:'space-around',
-                    marginLeft:25,
-                    marginTop:20
+                    borderBottomWidth: 4,
+                    borderBottomColor: '#62b34c',
+                    width: '40%',
+                    paddingBottom: 10,
                   }}>
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.props.navigation.navigate(Routes.Signup)
-                    } style={{justifyContent:'center',marginRight:75}}>
-                    <Label lagre color={Color.DARK_CYAN}>
-                      Register Now!
-                    </Label>
-                  </TouchableOpacity> 
-                  <TouchableOpacity style={{justifyContent:'center'}} onPress={()=>{this.props.navigation.navigate(Routes.ForgotPassword)}}>
-                    <Label lagre color={Color.DARK_CYAN}>
-                      Forgot Password?
-                    </Label>
-                  </TouchableOpacity>
+                  <Label xlarge ms={35} color={Color.DARK_MODERATE_BLUE}>
+                    Login
+                  </Label>
                 </View>
-                <View style={{marginTop:10,paddingBottom:10}}>
-                  <Section />
-                </View>
-                <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
-                  <SocialButton
-                    btntext="FaceBook"
-                    source={require('../../assets/Img/facebook.png')}
-                  />
-                  <SocialButton
-                    btntext="Google"
-                    source={require('../../assets/Img/google.png')}
-                  />
-                </View>
-              </Animatable.View>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.props.navigation.push(Routes.Signup);
+                  }}>
+                  <Label xlarge ms={30} color={Color.DARK_BLUE}>
+                    SignUp
+                  </Label>
+                </TouchableOpacity>
+              </View>
+
+              <Label color={Color.DARK_MODERATE_BLUE} mt={20} ms={16} xxlarge>
+                Welcome
+              </Label>
+              <Label color={Color.DARK_GRAY} mt={10} mb={10} ms={16}>
+                Enter Your Email Id To Proceed
+              </Label>
+              <View style={{marginStart:15}}>
+              <InputText
+                placeholder="Email"
+                name="email"
+                placeholderTextColor={Color.BLACK}
+                value={this.state.email}
+                onChangeText={text => this.setState({email: text})}
+              />
+              </View>
+              <View style={{marginLeft: 20}}>
+                <Label xsmall ml={60} color={Color.PURE_ORANGE}>
+                  {this.state.emailError}
+                </Label>
+              </View>
+              <View style={{marginStart:15}}>
+              <InputText
+                placeholder="Password"
+                name="lock"
+                placeholderTextColor={Color.BLACK}
+                secureTextEntry={true}
+                onChangeText={text => this.setState({password: text})}
+              />
+              </View>
+              <View style={{marginLeft: 20}}>
+                <Label xsmall color={Color.PURE_ORANGE}>
+                  {this.state.PasswordError}
+                </Label>
+              </View>
+              <View style={styles.button}>
+                <Button name="LogIn" onPress={this.making_api_call} />
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  // justifyContent: 'space-evenly',
+                  marginHorizontal: 10,
+                  justifyContent: 'space-around',
+                  marginLeft: 0,
+                  marginTop: 20,
+                }}>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.props.navigation.navigate(Routes.ForgotPassword)
+                  }>
+                  <Label me={25} lagre color={Color.DARK_CYAN}>
+                    Forgot Password?
+                  </Label>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.props.navigation.push(Routes.Signup);
+                  }}>
+                  <Label lagre color={Color.DARK_CYAN}>
+                    Register Now!
+                  </Label>
+                </TouchableOpacity>
+              </View>
+              <View style={{marginTop: 10, paddingBottom: 10}}>
+                <Section />
+              </View>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                <SocialButton
+                  btntext="FaceBook"
+                  source={require('../../assets/Img/facebook.png')}
+                />
+                <SocialButton
+                  btntext="Google"
+                  source={require('../../assets/Img/google.png')}
+                />
+              </View>
+            </Animatable.View>
           </KeyboardAvoidingView>
         </LinearGradient>
       </SafeAreaView>

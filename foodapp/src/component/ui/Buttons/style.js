@@ -4,11 +4,11 @@ import { Color } from '../../../utils/Color'
 const styles = StyleSheet.create({
     button: {
      height:50,
-     width:360,
+     width:325,
      borderRadius:14,
      justifyContent:'center',
      alignItems:'center',
-     marginTop:10
+    //  marginTop:10
     },
     text: {
       color: Color.WHITE,

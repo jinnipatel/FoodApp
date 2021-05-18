@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
   button:{
     flexDirection:'row',
     height:50,
-    width:175,
-    borderRadius:14,
+    width:155,
+    borderRadius:12,
     justifyContent:'center',
     alignItems:'center',
     marginTop:10,

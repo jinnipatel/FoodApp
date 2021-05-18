@@ -20,6 +20,8 @@ export const Color = {
     GREY:"grey",
     GAINSBORO:"#dddddd",
     AVOCADO:"#6f6e92",
-    DARK_CYAN:"#009387"
+    DARK_CYAN:"#009387",
+    JUNGLE_GREEN:"#29B76D",
+    JELLY_BEAN:"#2497A6"
    
 };

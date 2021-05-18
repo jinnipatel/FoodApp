@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
     },
+    bordertext:{
+      borderBottomWidth:2  
+    },
     linerGradient:{
        width:'100%',
        height:'100%',
@@ -31,9 +34,9 @@ const styles = StyleSheet.create({
     //     borderRadius: 5
     // },
     footer: {
-        height:560,
+        height:570,
         width:'100%',
-        paddingHorizontal:10,
+        paddingHorizontal:20,
         backgroundColor:Color.WHITE,
         borderRadius:12,
     },
@@ -57,14 +60,10 @@ const styles = StyleSheet.create({
     },
     button: {
         // alignItems: 'center',
-        marginTop:10,
-        marginRight:6
-    },
-    signup: {
-        // marginLeft:10,
-        // marginRight:20,
-        // marginTop: 15,
-        // marginTop:10
+        // marginTop:10,
+        // marginRight:0,
+        
+        
     },
     button_text: {
         color:'#009387',
