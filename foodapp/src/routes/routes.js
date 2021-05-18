@@ -6,7 +6,9 @@ const  Routes ={
     Login:'Login',
     Signup:'Signup',
     Auth:'Auth',
-    Onborading:'Onborading'
+    Onborading:'Onborading',
+    ForgotPassword :'ForgotPassword'
+   
 }
 
 export default Routes;
