@@ -110,6 +110,7 @@ class Signup extends Component {
                   onChangeText={text => this.setState({email: text})}
                   value={this.state.email}
                   error={this.state.emailError}
+                  keyboardType="email-address"
                 />
                 <Label small ms={25} mt={5} color={Color.ERROR}>
                   {this.state.emailError}
@@ -120,6 +121,7 @@ class Signup extends Component {
                   onChangeText={text => this.setState({phoneNo: text})}
                   value={this.state.phoneNo}
                   error={this.state.phoneErrorValidation}
+                  keyboardType="phone-pad"
                 />
 
                 <Label small ms={25} mt={5} color={Color.ERROR}>

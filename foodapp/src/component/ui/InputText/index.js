@@ -24,6 +24,7 @@ class InputText extends Component {
                         value={this.props.value}
                         error={this.props.error}
                         placeholderTextColor={this.props.placeholderTextColor}
+                        keyboardType={this.props.keyboardType}
                       />
                       <TouchableOpacity onPress={this.props.onToggle}>
                       <CloseIcon 
