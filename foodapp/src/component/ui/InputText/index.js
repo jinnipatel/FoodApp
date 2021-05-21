@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, TextInput } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import styles from './style'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import ErrorIcon from 'react-native-vector-icons/MaterialCommunityIcons'
-import EyeIcon from 'react-native-vector-icons/Octicons'
-
+import CloseIcon from 'react-native-vector-icons/Octicons'
 
 
 class InputText extends Component {
@@ -16,7 +14,7 @@ class InputText extends Component {
                     <Icon 
                     name={this.props.name}
                     size={20}
-                    color={this.props.color}
+                    color={this.props.colorIcon}
                     style={styles.iconstyle}/>
                     <TextInput style={styles.textInput}
                         placeholder={this.props.placeholder}
@@ -27,21 +25,13 @@ class InputText extends Component {
                         error={this.props.error}
                         placeholderTextColor={this.props.placeholderTextColor}
                       />
-                      {/* <TouchableOpacity onPress={this.props.onToggle}>
-                          <ErrorIcon 
-                          name={this.props.Errorname}
-                          color={this.props.color}
-                          size={20}
-                          style={styles.errorIcon}/>
-                      </TouchableOpacity>
-
-                      <TouchableOpacity>
-                          <EyeIcon
-                          name={this.props.Eyename}
-                          color={this.props.color} 
-                          size={20}
-                          style={styles.eyeIcon}/>
-                      </TouchableOpacity> */}
+                      <TouchableOpacity onPress={this.props.onToggle}>
+                      <CloseIcon 
+                       name={this.props.IconName}
+                       size={20}
+                       color={this.props.closeColor}
+                       style={styles.eyeIcon} />
+                       </TouchableOpacity>
             
             </View>
         )

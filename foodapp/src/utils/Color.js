@@ -21,7 +21,15 @@ export const Color = {
     GAINSBORO:"#dddddd",
     AVOCADO:"#6f6e92",
     DARK_CYAN:"#009387",
-    JUNGLE_GREEN:"#29B76D",
-    JELLY_BEAN:"#2497A6"
+    // JUNGLE_GREEN:"#29B76D",
+    // JELLY_BEAN:"#2497A6",
+    DARK_GREEN:"#01a66e",
+    GREEN_GREEN:"#10353A",
+    DARK_C:'#01a66e',
+    GRADIENT3:'#6DC999',
+    GRADIENT4:'#73BFC9',
+    GRADIENT1:'#29B76D',
+    GRADIENT2:'#2A97A6'
+    
    
 };

@@ -10,6 +10,8 @@ import Loader from './ui/Loader/index'
 import SocialButton from './ui/SocialButton/index'
 import IconButton from './ui/IconButton/index'
 import Toast from './ui/Toast/index'
+import ImageComp  from './ui/ImageComp/index'
+import Status from './ui/Status/index'
 
 
 
@@ -25,6 +27,7 @@ export {
     Loader,
     SocialButton,
     IconButton,
-    Toast
-    
+    Toast,
+    ImageComp,
+    Status
 }

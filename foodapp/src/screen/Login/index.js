@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
   KeyboardAvoidingView,
   View,
-  Text,
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
@@ -12,6 +11,8 @@ import {
   Section,
   SocialButton,
   InputText,
+  ImageComp,
+  Status,
 } from '../../component/index';
 import * as Animatable from 'react-native-animatable';
 import styles from './style';
@@ -19,6 +20,7 @@ import Routes from '../../routes/routes';
 import {validation} from '../../utils/ValidationUtils';
 import {Color} from '../../utils/Color';
 import LinearGradient from 'react-native-linear-gradient';
+import CommonStyles from '../../utils/CommonStyles';
 
 class Login extends Component {
   constructor(props) {
@@ -28,6 +30,8 @@ class Login extends Component {
       password: '',
       emailError: '',
       PasswordError: '',
+      toggleIcon: 'eye-closed',
+      isSecurePaswword: true,
     };
   }
 
@@ -62,34 +66,37 @@ class Login extends Component {
     }
   };
 
+  IconToggle = () => {
+    this.state.isSecurePaswword
+      ? this.setState({isSecurePaswword: false, toggleIcon: 'eye'})
+      : this.setState({isSecurePaswword: true, toggleIcon: 'eye-closed'});
+  };
+
   render() {
     return (
-      <SafeAreaView style={styles.Maincontainer}>
+      <SafeAreaView style={CommonStyles.container}>
+        <Status hidden={true}/>
         <LinearGradient
-          colors={[Color.JUNGLE_GREEN, Color.JELLY_BEAN]}
+          colors={[Color.GRADIENT3, Color.GRADIENT4]}
           start={{x: 0, y: 1}}
           end={{x: 1, y: 0}}
-          style={styles.linerGradient}>
+          style={CommonStyles.linerGradient}>
           <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
+            keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 40}
+            enabled={Platform.OS === 'ios' ? true : false}>
+            <ImageComp />
+            <Label color={Color.WHITE} ms={130} mb={10} bolder xxlarge>
+              Welcome
+            </Label>
+
             <Animatable.View
-              style={styles.footer}
+              style={CommonStyles.content_container}
               animation="fadeInUpBig"
               iterationDelay={400}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-around',
-                  marginTop: 20,
-                }}>
-                <View
-                  style={{
-                    borderBottomWidth: 4,
-                    borderBottomColor: '#62b34c',
-                    width: '40%',
-                    paddingBottom: 10,
-                  }}>
-                  <Label xlarge ms={35} color={Color.DARK_MODERATE_BLUE}>
+              <View style={CommonStyles.login_signup_container}>
+                <View style={CommonStyles.bottom_border}>
+                  <Label xlarge ms={35} color={Color.DARK_BLUE}>
                     Login
                   </Label>
                 </View>
@@ -97,46 +104,37 @@ class Login extends Component {
                   onPress={() => {
                     this.props.navigation.push(Routes.Signup);
                   }}>
-                  <Label xlarge ms={30} color={Color.DARK_BLUE}>
+                  <Label xlarge ms={30} color={Color.DARK_MODERATE_BLUE}>
                     SignUp
                   </Label>
                 </TouchableOpacity>
               </View>
 
-              <Label color={Color.DARK_MODERATE_BLUE} mt={20} ms={16} xxlarge>
-                Welcome
-              </Label>
-              <Label color={Color.DARK_GRAY} mt={10} mb={10} ms={16}>
-                Enter Your Email Id To Proceed
-              </Label>
-              <View style={{marginStart:15}}>
               <InputText
                 placeholder="Email"
                 name="email"
-                placeholderTextColor={Color.BLACK}
+                // placeholderTextColor={Color.BLACK}
                 value={this.state.email}
                 onChangeText={text => this.setState({email: text})}
               />
-              </View>
-              <View style={{marginLeft: 20}}>
-                <Label xsmall ml={60} color={Color.PURE_ORANGE}>
-                  {this.state.emailError}
-                </Label>
-              </View>
-              <View style={{marginStart:15}}>
+              <Label xsmall ms={20} color={Color.PURE_ORANGE}>
+                {this.state.emailError}
+              </Label>
               <InputText
                 placeholder="Password"
                 name="lock"
-                placeholderTextColor={Color.BLACK}
-                secureTextEntry={true}
+                // placeholderTextColor={Color.BLACK}
+                secureTextEntry={this.state.isSecurePaswword}
                 onChangeText={text => this.setState({password: text})}
+                closeColor={Color.GREEN_GREEN}
+                IconName={this.state.toggleIcon}
+                onToggle={() => this.IconToggle()}
               />
-              </View>
-              <View style={{marginLeft: 20}}>
-                <Label xsmall color={Color.PURE_ORANGE}>
-                  {this.state.PasswordError}
-                </Label>
-              </View>
+
+              <Label xsmall ms={20} mt={10} color={Color.PURE_ORANGE}>
+                {this.state.PasswordError}
+              </Label>
+
               <View style={styles.button}>
                 <Button name="LogIn" onPress={this.making_api_call} />
               </View>
@@ -147,30 +145,26 @@ class Login extends Component {
                   marginHorizontal: 10,
                   justifyContent: 'space-around',
                   marginLeft: 0,
-                  marginTop: 20,
+                  marginTop: 10,
                 }}>
                 <TouchableOpacity
                   onPress={() =>
                     this.props.navigation.navigate(Routes.ForgotPassword)
                   }>
-                  <Label me={25} lagre color={Color.DARK_CYAN}>
+                  <Label mt={5} ms={170} lagre color={Color.DARK_BLUE}>
                     Forgot Password?
                   </Label>
                 </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.props.navigation.push(Routes.Signup);
-                  }}>
-                  <Label lagre color={Color.DARK_CYAN}>
-                    Register Now!
-                  </Label>
-                </TouchableOpacity>
               </View>
-              <View style={{marginTop: 10, paddingBottom: 10}}>
+              <View style={{marginTop: 5, paddingBottom: 5}}>
                 <Section />
               </View>
               <View
-                style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-evenly',
+                  paddingBottom: 15,
+                }}>
                 <SocialButton
                   btntext="FaceBook"
                   source={require('../../assets/Img/facebook.png')}

@@ -3,16 +3,15 @@ import {Color} from '../../../utils/Color';
 
 const styles = StyleSheet.create({
   container: {
-    // marginVertical:0,
     flexDirection: 'row',
-    justifyContent:'space-evenly',
+    justifyContent:'center',
     alignItems: 'center',
-    // marginLeft:20,
   },
   line: {
     height: 2,
-    width:'45%',
+    width:'41%',
     backgroundColor: Color.DARK_GRAY,
+    
   },
   text: {
     fontSize: 14,

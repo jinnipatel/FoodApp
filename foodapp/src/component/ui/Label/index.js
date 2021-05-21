@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { Color } from '../../../utils/Color';
-//import {fontXSmall, fontSmall, fontNormal, fontLarge, fontXLarge, fontXXLarge} from 'src/utils/theme';
 import Theme from "../../../utils/ThemeUtils"
 import PropTypes from 'prop-types';
 

@@ -5,19 +5,21 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         marginTop:10,
-        borderColor:Color.BLACK,
+        borderColor:Color.WHITE,
+        backgroundColor:Color.WHITE,
         borderRadius:14,
         borderWidth:2,
         height:50,
         width:325,
-        marginLeft:5
+        marginLeft:5,
+        alignSelf:'center'
     },
     iconstyle:{
         marginTop: 15,
         marginLeft: 20,
         position: 'absolute',
         fontSize: 20,
-        color: '#28388f',
+        color:Color.GREEN_GREEN
     },
     textInput: {
         paddingLeft:60,
@@ -25,15 +27,10 @@ const styles = StyleSheet.create({
         fontSize:20,
         color: '#6f6e92'
     },
-    errorIcon:{
-        marginTop:15,
-        marginRight:20,
-        color:'red'
-    },
     eyeIcon:{
-        marginTop:15,
+        alignSelf:'center',
         marginRight:20,
-        color:"#a5a5a5"
+        marginTop:14
     }
 
 })

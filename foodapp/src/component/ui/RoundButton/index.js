@@ -2,7 +2,6 @@ import React from 'react';
 import {View, TouchableHighlight, Text} from 'react-native';
 import Ripple from '../Ripple/index';
 import {Color} from '../../../utils/Color';
-//import {fontXSmall, fontSmall, fontNormal, fontLarge, fontXLarge} from 'src/utils/theme';
 import Theme from '../../../utils/ThemeUtils';
 import PropTypes from 'prop-types';
 

@@ -1,46 +1,58 @@
-// import React, {Component} from 'react';
-// import {Text, View, TouchableOpacity, Image} from 'react-native';
-// import Label from '../Label';
+// import React,{Component} from 'react'
+// import { View, Text,StyleSheet } from 'react-native'
+// import Icon from 'react-native-vector-icons/Feather'
+// import Color from '../../../utils/Color'
+// import ThemeUtils from '../../../utils/ThemeUtils'
+// import Toast from '../../lib/react-native-another-toast'
+// import Label from '../Label'
 
-// import {Color, ThemeUtils} from '../../../utils';
-// import Toast from '../../lib/react-native-another-toast';
-// // import icon from '../../../assets/image/icon1.png';
-
-// export default class ToastMessage extends Component {
+// class ToastMessage extends Component{ 
 //     componentDidMount(){
 //         this.toast.showToast()
 //     }
-//   render() {
-//     return (
-//       <View>
-//         <Toast
-//           content={
-//               <View>
-//             <View style={{flexDirection: 'row',
-//              alignItems: 'center',
-//              borderTopRightRadius:55,
-//              borderBottomEndRadius:55,
-//              borderTopLeftRadius:55,
-//              borderBottomStartRadius:55,            
-//              backgroundColor:Color.PRIMARY,
-//              padding:ThemeUtils.relativeWidth(2),
-//             }}>
-                  
-//               <Image style={{width: ThemeUtils.relativeHeight(4),
-//                  height: ThemeUtils.relativeHeight(4),marginLeft:10}} source={require("../../../assets/Img/facebook.png")} />
-//               <Label ms={10} small color={Color.WHITE}>
-//                  {" "}{this.props.text}
-//               </Label>
-             
-//             </View>
-//             </View>
-//           }
-//           slide="horizontal"
-//           ref={(c) => {
+//     render(){
+//         return (
+//             <View>
+//                <Toast
+//                 content={
+//                     <View style={styles.container}>
+//      <View style={styles.subContainer}>
+//      <View style={styles.column}></View>
+//      <View style={styles.content}>
+       
+//         <View style={styles.toastMsg}><Icon name='alert-circle' size={18} color={Color.DARK_BLUE}/>
+//         <Label color={Color.DARK_BLUE} ms={12} small>{this.props.text}</Label>
+//         </View>
+//       </View>
+//      </View>
+//     </View>
+//                 }
+//                 slide='bottom'
+//                 ref={(c) => {
 //             this.toast = c;
 //           }}
-//         />
-//       </View>
-//     );
-//   }
+                
+
+
+//                />
+//             </View>
+//         )
+//     }
 // }
+
+// export default ToastMessage
+
+// const styles = StyleSheet.create({
+//     container:{
+//         marginTop:60,backgroundColor:Color.WHITE,width:'100%',
+//         alignSelf:'center',marginRight:25
+//     },
+//     subContainer:{
+//         flexDirection:'row',height:30
+//     },
+//     column:{backgroundColor:'red',width:5},
+//     content:{
+//         marginHorizontal:20,justifyContent:'center',flexDirection:'row'
+//     },
+//     toastMsg:{flexDirection:'row',alignItems:'center'}
+// })

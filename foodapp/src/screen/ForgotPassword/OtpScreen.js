@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View,Image } from 'react-native'
+import { Text, View,Image, TextInput } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
-import { Label } from '../../component'
+import {  Label ,Button } from '../../component'
 import { Color } from '../../utils/Color'
 import styles from './style'
 import * as Animatable from 'react-native-animatable'
@@ -24,19 +24,23 @@ export class OtpScreen extends Component {
                   animation="fadeInUpBig"
                   iterationDelay={400} >
                     <Image source={require("../../assets/Img/forgot-pass.png")} style={{width:100,height:100,marginTop:20,marginLeft:125}}/>
-                    <Label large ms={20}>Enter Verification Code</Label>
-                    <Label  ms={20} mt={20} >Please wait email delivery somtimes take of 2 to 5</Label>
-                    <View style={{flexDirection:'row',justifyContent:'space-evenly',marginTop:75}}>
-                        <Label>_____</Label>
+                    <Label xlarge ms={20}>Enter Verification Code</Label>
+                    <Label  ms={20} mt={20} large >Please wait email delivery somtimes take of 2 to 5</Label>
+                    <View style={{flexDirection:'row',justifyContent:'space-evenly',marginTop:30}}>
+                        {/* <Label>_____</Label>
                         <Label>_____</Label>
                         <Label>_____</Label>
                         <TouchableOpacity onPress={()=>{this.props.navigation.navigate(Routes.ResetPassword)}}>
                         <Label>_____</Label>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
+                         <TextInput style={{maxHeight:50,width:50,borderWidth:2,borderRadius:15}}/>
+                         <TextInput style={{maxHeight:50,width:50,borderWidth:2,borderRadius:15}}/>
+                         <TextInput style={{maxHeight:50,width:50,borderWidth:2,borderRadius:15}}/>
+                         <TextInput style={{maxHeight:50,width:50,borderWidth:2,borderRadius:15}} />
                     </View>
-                    <View style={{justifyContent:'center',alignSelf:'center',marginTop:40}}>
-                    <Label large color={Color.MEDIUM_DARK_BLUE}>Resend OTP</Label>
-                    </View>
+                          <View style={{marginTop:20}}>
+                              {/* <Button name="Continue" onPress={()=>{this.props.navigation.navigate(Routes.ResetPassword)}}/> */}
+                          </View>
                 </Animatable.View>
 
                </LinearGradient>

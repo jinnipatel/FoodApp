@@ -1,7 +1,7 @@
 import {CommonActions} from '@react-navigation/routers';
 import React, {Component} from 'react';
-import { View} from 'react-native';
-import {Button, Header, IconButton, Loader, RoundButton, Toast} from '../../component/index';
+import { StatusBar, View} from 'react-native';
+import {Button, Header, IconButton, Loader, RoundButton, Status, Toast} from '../../component/index';
 import Routes from '../../routes/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {Label} from '../../component/index'
@@ -32,6 +32,8 @@ export class Home extends Component {
     return (
 
       <View>
+        {/* <StatusBar hidden={tr}/> */}
+        <Status hidden={false}/>
        <Header onPress={()=>this.props.navigation.openDrawer()}/>
        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',marginTop:50}}>
         <Button buttonText="Logout" onPress={()=>this.removeAuthentication()} />

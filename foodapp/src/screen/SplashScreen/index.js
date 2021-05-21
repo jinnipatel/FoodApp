@@ -1,15 +1,12 @@
 import {CommonActions} from '@react-navigation/routers';
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import styles from './style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Routes from '../../routes/routes';
-import {Label} from '../../component';
+import {Label, Status} from '../../component';
 import {Color} from '../../utils/Color';
-// import { Image } from 'native-base';
+
 
 class SplashScreen extends React.Component {
   resetToAuth = CommonActions.reset({
@@ -54,7 +51,7 @@ class SplashScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-         
+         <Status hidden={true}/>
         <Image
           source={require('../../assets/Img/foodoorer.jpg')}
           style={styles.logo}

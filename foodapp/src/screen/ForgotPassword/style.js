@@ -9,9 +9,6 @@ const styles = StyleSheet.create({
         alignItems:'center',
         // backgroundColor:"#10353A"
     },
-    MainContainer:{
-        flex:2,
-    },
     linerGradient:{
         width:'100%',
         height:'100%',
@@ -20,16 +17,15 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     footer:{
-        flex:4,
-        height:500,
-        width:'100%',
-        paddingHorizontal:20,
-        backgroundColor:Color.WHITE,
-        borderRadius:12,
-        marginTop:40,
-        borderTopStartRadius:50,
-        borderTopEndRadius:50
-    },
+        // height:450,
+        // width:'100%',
+        // // paddingHorizontal:0,
+        // backgroundColor:Color.WHITE,
+        // borderRadius:12,
+        height:400,
+        width:"100%",
+        backgroundColor:Color.WHITE
+   },
     
 
 

@@ -12,7 +12,7 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import EntypoIcon from 'react-native-vector-icons/Entypo'
 import Routes from '../../routes/routes';
-import {Label} from '../../component'
+import {Label, Status} from '../../component'
 import styles from './style'
 import { Color } from '../../utils/Color';
 
@@ -87,6 +87,7 @@ const AppIntroScreen = ({navigation}) => {
           justifyContent: 'space-around',
           paddingBottom: 100,
         }}>
+         <Status hidden={true}/> 
         <Label style={styles.introTitleStyle}>{item.title}</Label>
         <Image
           style={styles.introImageStyle}
