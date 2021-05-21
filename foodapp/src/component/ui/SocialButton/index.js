@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {TouchableOpacity,View, Text,Image} from 'react-native';
+import Label from '../Label';
 import styles from './style';
 
 export default class SocialButton extends Component {

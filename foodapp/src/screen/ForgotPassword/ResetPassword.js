@@ -16,8 +16,10 @@ export class ResetPassword extends Component {
             passwordError:'',
             confirmPassword:'',
             ConfirmPasswordError:'',
+            toggleIcon1:'eye-closed',
             toggleIcon:'eye-closed',
-            isSecurePassword:true    
+            isSecurePassword:true  ,
+            isConformPassword:true  
         }
     }
 
@@ -60,6 +62,12 @@ export class ResetPassword extends Component {
         :this.setState({isSecurePassword:true,toggleIcon:'eye-closed'})
     }
 
+    conformToggle =()=>{
+        this.state. isConformPassword
+        ?this.setState({ isConformPassword:false,toggleIcon1:'eye'})
+        :this.setState({ isConformPassword:true,toggleIcon1:'eye-closed'})
+    }
+
 
 
     render() {
@@ -93,11 +101,11 @@ export class ResetPassword extends Component {
                      <Label small color={Color.PURE_ORANGE} ms={35}>{this.state.passwordError}</Label>
                   
                    <InputText placeholder="Confirm Password"
-                     secureTextEntry={this.state.isSecurePassword} name="lock" 
+                     secureTextEntry={this.state.isConformPassword} name="lock" 
                      onChangeText={text=>{this.setState({confirmPassword:text})}}
                      closeColor={Color.GREEN_GREEN}
-                     IconName={this.state.toggleIcon}
-                     onToggle={()=>this.IconToggle()}/>
+                     IconName={this.state.toggleIcon1}
+                     onToggle={()=>this.conformToggle()}/>
                    
                         <Label small color={Color.PURE_ORANGE}>{this.state.confirmpasswordError}</Label>
                    

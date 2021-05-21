@@ -29,7 +29,8 @@ export const Color = {
     GRADIENT3:'#6DC999',
     GRADIENT4:'#73BFC9',
     GRADIENT1:'#29B76D',
-    GRADIENT2:'#2A97A6'
+    GRADIENT2:'#2A97A6',
+    APPLE:'#62b34c'
     
    
 };

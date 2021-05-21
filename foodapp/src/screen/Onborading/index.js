@@ -1,78 +1,68 @@
 import React, {useState} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   View,
-  Text,
   Image,
-  Button,
   TouchableOpacity,
+  StatusBar
 } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import EntypoIcon from 'react-native-vector-icons/Entypo'
 import Routes from '../../routes/routes';
-import {Label, Status} from '../../component'
-import styles from './style'
+import {Label} from '../../component/index'
+import ThemeUtils from '../../utils/ThemeUtils';
 import { Color } from '../../utils/Color';
 
 
 
 
-
-const AppIntroScreen = ({navigation}) => {
+const Onboarding = ({navigation}) => {
     const slides = [
         {
           key: 's1',
-          text: "",
-          title: "Acceted Order",
+          text: "Order to Keep Stomach Happy & Healthy",
+          title: "Select a Restaurant\nOrder Your Food",
           image: require('../../assets/Img/Orderfood.png'),
         },
         {
           key: 's2',
-          title: 'Collected Order & Pickup order',
-          text: '',
-          image : require('../../assets/Img/payment.png'),
+          title: 'Add Address and\nChoose Payment Method',
+          text: 'Secure Payment & Food at your door step',
+          image : require('../../assets/Img/img2.png'),
         },
         {
           key: 's3',
-          title: 'Get Payment',
+          title: 'Food Delivered\nTo your home',
           text: 'Get food delivery in the fastest time ',
           image : require('../../assets/Img/FoodDelivery.png')
         },
        
       ];
-  const [showRealApp, setShowRealApp] = useState(false);
 
   const onDone = () => {
-    setShowRealApp(true);
+    props.onDone();
   };
 
   const RenderNextButton = () => {
     return (
-       <View>    
-        <Icon
-          name="chevron-right"
-          color="rgba(255, 255, 255, .9)"
-          size={30}
-          style={{color:Color.BLUE}}
-        />
-      </View>
+     
+      <View style={styles.buttonCircle}>
+
+      <Icon name="arrow-right" style={{ fontSize: 25, color:Color.WHITE }} />
+
+    </View>
     );
   };
 
   const RenderDoneButton = () => {
     return (
-      <TouchableOpacity onPress={() => navigation.navigate(Routes.Login)} >
-      <View >
-        <EntypoIcon
-          name="login"
-          color="rgba(255, 255, 255, .9)"
-          size={30}
+  
+      <TouchableOpacity onPress={() => navigation.navigate(Routes.Login)}>
+        <View style={styles.buttonCircle}>
+          <Icon name="thumbs-up" style={{ fontSize: 25, fontWeight: 'bold', color: Color.WHITE }} />
 
-          style={{color:Color.BLUE,fontWeight:'bolder'}}
-        />
-      </View>
+        </View>
       </TouchableOpacity>
     );
   };
@@ -80,42 +70,70 @@ const AppIntroScreen = ({navigation}) => {
   const RenderItem = ({item}) => {
     return (
       <View
-        style={{
-          flex: 1,                
-          backgroundColor:Color.WHITE,
-          alignItems: 'center',
-          justifyContent: 'space-around',
-          paddingBottom: 100,
-        }}>
-         <Status hidden={true}/> 
-        <Label style={styles.introTitleStyle}>{item.title}</Label>
+        style={styles.container}>
+     <Label large bolder color={Color.DARK_MODERATE_BLUE} align='center'>{item.title}</Label>
+
         <Image
           style={styles.introImageStyle}
           source={item.image} />
-        <Label style={styles.introTextStyle}>{item.text}</Label>
+      
+      <Label align='center' normal color={Color.DARK_MODERATE_BLUE}>{item.text}</Label>
 
       </View>
     );
   };
 
   return (
-    <>
-      {showRealApp ? (
-        null
-      ) : (
+   
+       <View style={{flex:1}}>
+       <StatusBar hidden={true}/>
         <AppIntroSlider
           data={slides}
           renderItem={RenderItem}
           onDone={onDone}
           renderDoneButton={RenderDoneButton}
           renderNextButton={RenderNextButton}
+          dotStyle={styles.dotStyle}
+        activeDotStyle={styles.activeDotStyle}
         />
-      )}
-    </>
+        </View>
+   
   );
 };
 
-export default AppIntroScreen;
+export default Onboarding;
 
-
-
+const styles = StyleSheet.create({
+  container: 
+    {
+      flex: 1,                
+      backgroundColor:Color.WHITE,
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      paddingBottom: 100,
+    
+  }, 
+  buttonCircle: {
+    marginTop: 4,
+    width: 40,
+    height: 40,
+    backgroundColor: Color.APPLE,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+ 
+  introImageStyle: {
+    // width: '100%',
+    // height: 200,
+    width:ThemeUtils.relativeWidth(82),
+    height:ThemeUtils.relativeHeight(30)
+  },
+  dotStyle: {
+    backgroundColor: Color.DARK_GRAY,
+  },
+  activeDotStyle: {
+    backgroundColor: Color.APPLE,
+  },
+ 
+});

@@ -86,7 +86,7 @@ class Login extends Component {
             keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 40}
             enabled={Platform.OS === 'ios' ? true : false}>
             <ImageComp />
-            <Label color={Color.WHITE} ms={130} mb={10} bolder xxlarge>
+            <Label color={Color.WHITE}  mb={10} align="center" bolder xxlarge>
               Welcome
             </Label>
 
@@ -96,7 +96,7 @@ class Login extends Component {
               iterationDelay={400}>
               <View style={CommonStyles.login_signup_container}>
                 <View style={CommonStyles.bottom_border}>
-                  <Label xlarge ms={35} color={Color.DARK_BLUE}>
+                  <Label large align="center" bolder color={Color.DARK_BLUE}>
                     Login
                   </Label>
                 </View>
@@ -104,7 +104,7 @@ class Login extends Component {
                   onPress={() => {
                     this.props.navigation.push(Routes.Signup);
                   }}>
-                  <Label xlarge ms={30} color={Color.DARK_MODERATE_BLUE}>
+                  <Label large align="center" bolder color={Color.DARK_MODERATE_BLUE}>
                     SignUp
                   </Label>
                 </TouchableOpacity>
@@ -138,24 +138,14 @@ class Login extends Component {
               <View style={styles.button}>
                 <Button name="LogIn" onPress={this.making_api_call} />
               </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  // justifyContent: 'space-evenly',
-                  marginHorizontal: 10,
-                  justifyContent: 'space-around',
-                  marginLeft: 0,
-                  marginTop: 10,
-                }}>
                 <TouchableOpacity
                   onPress={() =>
                     this.props.navigation.navigate(Routes.ForgotPassword)
-                  }>
-                  <Label mt={5} ms={170} lagre color={Color.DARK_BLUE}>
+                  } style={{marginTop:10,alignSelf:'flex-end'}}>
+                  <Label  align="right"  lagre color={Color.DARK_BLUE}>
                     Forgot Password?
                   </Label>
                 </TouchableOpacity>
-              </View>
               <View style={{marginTop: 5, paddingBottom: 5}}>
                 <Section />
               </View>

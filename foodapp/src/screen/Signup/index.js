@@ -71,8 +71,7 @@ class Signup extends Component {
             <View>
               <Status hidden={true}/>
               <ImageComp />
-              <Label xxlarge ms={90} mb={15} bolder color={Color.WHITE}>
-                {' '}
+              <Label xxlarge align="center" mb={15} bolder color={Color.WHITE}>
                 Registered Now
               </Label>
 
@@ -85,13 +84,13 @@ class Signup extends Component {
                     onPress={() => {
                       this.props.navigation.push(Routes.Login);
                     }}>
-                    <Label xlarge ms={30} color={Color.DARK_MODERATE_BLUE}>
+                    <Label large align="center" bolder color={Color.DARK_MODERATE_BLUE}>
                       Login
                     </Label>
                   </TouchableOpacity>
 
                   <View style={CommonStyles.bottom_border}>
-                    <Label xlarge ms={30} color={Color.DARK_BLUE}>
+                    <Label large bolder align="center" color={Color.DARK_BLUE}>
                       SignUp
                     </Label>
                   </View>
