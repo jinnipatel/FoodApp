@@ -114,6 +114,7 @@ class Login extends Component {
                 name="email"
                 value={this.state.email}
                 onChangeText={text => this.setState({email: text})}
+                keyboardType="email-address"
               />
               <Label small ms={20} color={Color.ERROR}>
                 {this.state.emailError}
@@ -126,6 +127,7 @@ class Login extends Component {
                 closeColor={Color.GREEN_GREEN}
                 IconName={this.state.toggleIcon}
                 onToggle={() => this.IconToggle()}
+               
               />
 
               <Label small ms={20} mb={10}  color={Color.ERROR}>
