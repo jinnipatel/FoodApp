@@ -30,7 +30,7 @@ class Signup extends Component {
     firstnamerror = validation('name', this.state.firstname);
     emailError = validation('email', this.state.email);
     phoneErrorValidation = validation('phoneNo', this.state.phoneNo);
-    if (firstnamerror != null || emailError != null) {
+    if (firstnamerror != null || emailError != null || phoneErrorValidation != null) {
       this.setState({
         firstnamerror: firstnamerror,
         emailError: emailError,
@@ -95,15 +95,13 @@ class Signup extends Component {
                     </Label>
                   </View>
                 </View>
-
                 <InputText
                   name="person"
                   placeholder="First Name"
                   onChangeText={text => this.setState({firstname: text})}
                   value={this.state.firstname}
                 />
-
-                <Label small ms={25} mt={5} color={Color.PURE_ORANGE}>
+                <Label small ms={25} mt={5} color={Color.ERROR}>
                   {this.state.firstnamerror}
                 </Label>
                 <InputText
@@ -113,21 +111,18 @@ class Signup extends Component {
                   value={this.state.email}
                   error={this.state.emailError}
                 />
-
-                <Label small ms={25} mt={5} color={Color.PURE_ORANGE}>
+                <Label small ms={25} mt={5} color={Color.ERROR}>
                   {this.state.emailError}
                 </Label>
-
                 <InputText
                   name="phone-iphone"
                   placeholder="Number"
-                  // placeholderTextColor={Color.BLACK}
                   onChangeText={text => this.setState({phoneNo: text})}
                   value={this.state.phoneNo}
                   error={this.state.phoneErrorValidation}
                 />
 
-                <Label small ms={25} mt={5} color={Color.PURE_ORANGE}>
+                <Label small ms={25} mt={5} color={Color.ERROR}>
                   {this.state.phoneErrorValidation}
                 </Label>
                 <View style={{marginTop: 10, paddingBottom: 10}}>

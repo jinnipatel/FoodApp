@@ -55,7 +55,6 @@ class Login extends Component {
     if (isValid) {
       this.props.navigation.navigate(Routes.Auth, {
         email: this.state.email,
-        // password: this.state.password,
       });
     }
   };
@@ -113,17 +112,15 @@ class Login extends Component {
               <InputText
                 placeholder="Email"
                 name="email"
-                // placeholderTextColor={Color.BLACK}
                 value={this.state.email}
                 onChangeText={text => this.setState({email: text})}
               />
-              <Label xsmall ms={20} color={Color.PURE_ORANGE}>
+              <Label small ms={20} color={Color.ERROR}>
                 {this.state.emailError}
               </Label>
               <InputText
                 placeholder="Password"
                 name="lock"
-                // placeholderTextColor={Color.BLACK}
                 secureTextEntry={this.state.isSecurePaswword}
                 onChangeText={text => this.setState({password: text})}
                 closeColor={Color.GREEN_GREEN}
@@ -131,7 +128,7 @@ class Login extends Component {
                 onToggle={() => this.IconToggle()}
               />
 
-              <Label xsmall ms={20} mt={10} color={Color.PURE_ORANGE}>
+              <Label small ms={20} mb={10}  color={Color.ERROR}>
                 {this.state.PasswordError}
               </Label>
 
@@ -171,5 +168,4 @@ class Login extends Component {
     );
   }
 }
-
 export default Login;

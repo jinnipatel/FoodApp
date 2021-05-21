@@ -30,7 +30,8 @@ export const Color = {
     GRADIENT4:'#73BFC9',
     GRADIENT1:'#29B76D',
     GRADIENT2:'#2A97A6',
-    APPLE:'#62b34c'
+    APPLE:'#62b34c',
+    ERROR:'#FF0000',
     
    
 };

@@ -73,7 +73,7 @@ export class ForgotPassword extends Component {
                 placeholder="Email" 
                 onChangeText={text => this.setState({email: text})}/>
                
-                   <Label small  ms={30} mb={10} color={Color.PURE_ORANGE}>
+                   <Label small  ms={30} mb={10} color={Color.ERROR}>
                        {this.state.emailError}
                    </Label>
                

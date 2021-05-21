@@ -98,7 +98,7 @@ export class ResetPassword extends Component {
                      IconName={this.state.toggleIcon}
                      onToggle={()=>this.IconToggle()}/>
                   
-                     <Label small color={Color.PURE_ORANGE} ms={35}>{this.state.passwordError}</Label>
+                     <Label small color={Color.ERROR} ms={30}>{this.state.passwordError}</Label>
                   
                    <InputText placeholder="Confirm Password"
                      secureTextEntry={this.state.isConformPassword} name="lock" 
@@ -107,7 +107,7 @@ export class ResetPassword extends Component {
                      IconName={this.state.toggleIcon1}
                      onToggle={()=>this.conformToggle()}/>
                    
-                        <Label small color={Color.PURE_ORANGE}>{this.state.confirmpasswordError}</Label>
+                    <Label small color={Color.ERROR} ms={30}>{this.state.confirmpasswordError}</Label>
                    
                    <View style={{marginTop:5,paddingBottom:10}}>
                    <Button name="Reset Password" onPress={this.check_Validation} />

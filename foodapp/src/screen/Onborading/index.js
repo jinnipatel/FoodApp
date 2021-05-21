@@ -8,14 +8,11 @@ import {
 } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import EntypoIcon from 'react-native-vector-icons/Entypo'
+// import EntypoIcon from 'react-native-vector-icons/Entypo'
 import Routes from '../../routes/routes';
 import {Label} from '../../component/index'
 import ThemeUtils from '../../utils/ThemeUtils';
 import { Color } from '../../utils/Color';
-
-
-
 
 const Onboarding = ({navigation}) => {
     const slides = [
@@ -57,34 +54,27 @@ const Onboarding = ({navigation}) => {
 
   const RenderDoneButton = () => {
     return (
-  
       <TouchableOpacity onPress={() => navigation.navigate(Routes.Login)}>
         <View style={styles.buttonCircle}>
           <Icon name="thumbs-up" style={{ fontSize: 25, fontWeight: 'bold', color: Color.WHITE }} />
-
         </View>
       </TouchableOpacity>
     );
   };
-
   const RenderItem = ({item}) => {
     return (
       <View
         style={styles.container}>
      <Label large bolder color={Color.DARK_MODERATE_BLUE} align='center'>{item.title}</Label>
-
         <Image
           style={styles.introImageStyle}
           source={item.image} />
-      
       <Label align='center' normal color={Color.DARK_MODERATE_BLUE}>{item.text}</Label>
-
       </View>
     );
   };
 
-  return (
-   
+  return (  
        <View style={{flex:1}}>
        <StatusBar hidden={true}/>
         <AppIntroSlider
@@ -97,12 +87,10 @@ const Onboarding = ({navigation}) => {
         activeDotStyle={styles.activeDotStyle}
         />
         </View>
-   
   );
 };
 
 export default Onboarding;
-
 const styles = StyleSheet.create({
   container: 
     {
@@ -110,8 +98,7 @@ const styles = StyleSheet.create({
       backgroundColor:Color.WHITE,
       alignItems: 'center',
       justifyContent: 'space-around',
-      paddingBottom: 100,
-    
+      paddingBottom: 100, 
   }, 
   buttonCircle: {
     marginTop: 4,
@@ -122,10 +109,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
- 
   introImageStyle: {
-    // width: '100%',
-    // height: 200,
     width:ThemeUtils.relativeWidth(82),
     height:ThemeUtils.relativeHeight(30)
   },

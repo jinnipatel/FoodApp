@@ -25,26 +25,19 @@ export class Home extends Component {
       console.log(e);
     }
   };
-
-
-
   render() {
     return (
-
       <View>
-        {/* <StatusBar hidden={tr}/> */}
-        <Status hidden={false}/>
+       <Status hidden={false}/>
        <Header onPress={()=>this.props.navigation.openDrawer()}/>
        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',marginTop:50}}>
         <Button buttonText="Logout" onPress={()=>this.removeAuthentication()} />
         <Label color={Color.BLACK}>Hello Jeenni</Label>
         <RoundButton  mt={20}  xsmall >Hello I'm Round Button</RoundButton>
         <IconButton  text="Update"     btn_xl  backgroundColor={Color.PURE_ORANGE} image={require("../../assets/Img/facebook.png") }/>
-        {/* <Toast /> */}
       </View> 
       </View>
     );
   }
 }
-
 export default Home;
