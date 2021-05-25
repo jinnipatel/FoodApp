@@ -1,4 +1,5 @@
 
+
 const  Routes ={
     Authenticated:'Authenticated',
     NotAuthenticated:'NotAuthenticated',
@@ -10,7 +11,8 @@ const  Routes ={
     Onborading:'Onborading',
     ForgotPassword :'ForgotPassword',
     OtpScreen:'OtpScreen',
-    ResetPassword:"ResetPassword"
+    ResetPassword:"ResetPassword",
+    Profile:"Profile"
    
 }
 

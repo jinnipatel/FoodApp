@@ -12,6 +12,7 @@ import IconButton from './ui/IconButton/index'
 import Toast from './ui/Toast/index'
 import ImageComp  from './ui/ImageComp/index'
 import Status from './ui/Status/index'
+import DrawerComponent from './ui/Drawer/index'
 
 
 
@@ -29,5 +30,7 @@ export {
     IconButton,
     Toast,
     ImageComp,
-    Status
+    Status,
+    DrawerComponent
+    
 }

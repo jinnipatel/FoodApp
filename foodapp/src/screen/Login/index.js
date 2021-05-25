@@ -58,6 +58,7 @@ class Login extends Component {
     if (isValid) {
       this.props.navigation.navigate(Routes.Auth, {
         email: this.state.email,
+        password:this.state.password
       });
     }
   };
@@ -96,7 +97,9 @@ class Login extends Component {
               behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
               keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 40}
               enabled={Platform.OS === 'ios' ? true : false}> */}
+              <View style={{marginTop:20}}>
               <ImageComp />
+              </View>
               <Label color={Color.WHITE} mb={10} align="center" bolder xxlarge>
                 Welcome
               </Label>
@@ -138,6 +141,7 @@ class Login extends Component {
                 <InputText
                   placeholder="Enter Password"
                   name="lock"
+                  value={this.state.password}
                   secureTextEntry={this.state.isSecurePaswword}
                   onChangeText={text => this.setState({password: text})}
                   closeColor={Color.GREEN_GREEN}

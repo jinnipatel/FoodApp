@@ -9,7 +9,7 @@ const Style = StyleSheet.create({
     },
     logo:{
         alignSelf:'center',
-        height:ThemeUtils.relativeHeight(20),
+        height:ThemeUtils.relativeHeight(14),
         width:ThemeUtils.relativeWidth(45)
     },
     content_container:{

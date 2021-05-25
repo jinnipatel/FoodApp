@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Animatable from 'react-native-animatable';
 import styles from './style';
 import Routes from '../../routes/routes';
-import {validation} from '../../utils/ValidationUtils';
+import {validation,PasswordValidate} from '../../utils/ValidationUtils';
 import {Color} from '../../utils/Color';
 import LinearGradient from 'react-native-linear-gradient';
 import {ScrollView, TouchableOpacity, TouchableWithoutFeedback} from 'react-native-gesture-handler';
@@ -24,19 +24,34 @@ class Signup extends Component {
       emailError: '',
       phoneNo: '',
       phoneErrorValidation: '',
+      password: '',
+      passwordError: '',
+      confirmPassword: '',
+      ConfirmPasswordError: '',
+      toggleIcon1: 'eye-closed',
+      toggleIcon: 'eye-closed',
+      isSecurePassword: true,
+      isConformPassword: true,
     };
   }
 
   check_validate = () => {
-    let firstnamerror, emailError, phoneErrorValidation, isValid;
+    let firstnamerror, emailError, phoneErrorValidation,passwordError, confirmpasswordError, isValid;
     firstnamerror = validation('name', this.state.firstname);
     emailError = validation('email', this.state.email);
     phoneErrorValidation = validation('phoneNo', this.state.phoneNo);
-    if (firstnamerror != null || emailError != null || phoneErrorValidation != null) {
+    passwordError = validation('password', this.state.password);
+    confirmpasswordError = PasswordValidate(
+      this.state.password,
+      this.state.confirmPassword,
+    )
+    if (firstnamerror != null || emailError != null || phoneErrorValidation != null  || passwordError != null || confirmpasswordError != null ) {
       this.setState({
         firstnamerror: firstnamerror,
         emailError: emailError,
         phoneErrorValidation: phoneErrorValidation,
+        passwordError:passwordError,
+        confirmpasswordError:confirmpasswordError
       });
       isValid = false;
     } else {
@@ -44,6 +59,8 @@ class Signup extends Component {
         firstnamerror: '',
         emailError: '',
         phoneErrorValidation: '',
+        passwordError:'',
+        confirmpasswordError:''
       });
       isValid = true;
     }
@@ -52,6 +69,11 @@ class Signup extends Component {
         firstname: this.state.firstname,
         email: this.state.email,
         phoneNo: this.state.phoneNo,
+        password:this.state.password,
+        confirmPassword:this.state.confirmPassword
+
+
+      
       };
       AsyncStorage.setItem('signup_data', JSON.stringify(obj));
       console.log(obj);
@@ -59,6 +81,19 @@ class Signup extends Component {
       this.props.navigation.navigate(Routes.Login);
     }
   };
+
+  IconToggle = () => {
+    this.state.isSecurePassword
+      ? this.setState({isSecurePassword: false, toggleIcon: 'eye'})
+      : this.setState({isSecurePassword: true, toggleIcon: 'eye-closed'});
+  };
+
+  conformToggle = () => {
+    this.state.isConformPassword
+      ? this.setState({isConformPassword: false, toggleIcon1: 'eye'})
+      : this.setState({isConformPassword: true, toggleIcon1: 'eye-closed'});
+  };
+
   render() {
     return (
       <SafeAreaView style={CommonStyles.container}>
@@ -69,7 +104,7 @@ class Signup extends Component {
           end={{x: 1, y: 0}}
           style={CommonStyles.linerGradient}>
 
-<KeyboardAwareScrollView
+         <KeyboardAwareScrollView
           style={{flex: 1}}
           resetScrollToCoords={{x: 0, y: 0}}
           scrollEnabled={true}
@@ -87,7 +122,7 @@ class Signup extends Component {
             <View>
               <Status hidden={true}/>
               <ImageComp />
-              <Label xxlarge align="center" mb={15} bolder color={Color.WHITE}>
+              <Label xxlarge align="center" mb={10}  bolder color={Color.WHITE}>
                 Welcome To All 
               </Label>
               {/* <ScrollView> */}
@@ -144,6 +179,37 @@ class Signup extends Component {
                 />
                 <Label small ms={25} color={Color.ERROR}>
                   {this.state.phoneErrorValidation}
+                </Label>
+
+                <InputText
+                  name="lock"
+                  placeholder="Enter Password"
+                  secureTextEntry={this.state.isSecurePassword}
+                  onChangeText={text => {
+                    this.setState({password: text});
+                  }}
+                  closeColor={Color.GREEN_GREEN}
+                  IconName={this.state.toggleIcon}
+                  onToggle={() => this.IconToggle()}
+                />
+
+                <Label small color={Color.ERROR} ms={30}>
+                  {this.state.passwordError}
+                </Label>
+                <InputText
+                  placeholder="Re-type Password"
+                  secureTextEntry={this.state.isConformPassword}
+                  name="lock"
+                  onChangeText={text => {
+                    this.setState({confirmPassword: text});
+                  }}
+                  closeColor={Color.GREEN_GREEN}
+                  IconName={this.state.toggleIcon1}
+                  onToggle={() => this.conformToggle()}
+                />
+
+                <Label small color={Color.ERROR} ms={30}>
+                  {this.state.confirmpasswordError}
                 </Label>
                 </View>
                 <View style={{marginTop: 10, paddingBottom: 10}}>

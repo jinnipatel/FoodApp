@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
      container:{
          height:'25%',
          width:'100%',
-         backgroundColor:Color.PURE_ORANGE,
+         backgroundColor:Color.GRADIENT4,
          marginBottom:40
      },
      subContainer:{
