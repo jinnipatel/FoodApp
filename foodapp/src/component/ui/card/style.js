@@ -9,9 +9,9 @@ export const Styles= StyleSheet.create({
         backgroundColor: '#fff',
         elevation: 15,
         shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
         shadowColor: '#000',
         alignItems: 'center',
         justifyContent:"center"

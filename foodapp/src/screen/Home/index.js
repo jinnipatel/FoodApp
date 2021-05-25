@@ -34,7 +34,7 @@ export class Home extends Component {
         <Button buttonText="Logout" onPress={()=>this.removeAuthentication()} />
         <Label color={Color.BLACK}>Hello Jeenni</Label>
         <RoundButton  mt={20}  xsmall >Hello I'm Round Button</RoundButton>
-        <IconButton  text="Update"     btn_xl  backgroundColor={Color.PURE_ORANGE} image={require("../../assets/Img/facebook.png") }/>
+        {/* <IconButton  text="Update"     btn_xl  backgroundColor={Color.PURE_ORANGE} image={require("../../assets/Img/facebook.png") }/> */}
       </View> 
       </View>
     );

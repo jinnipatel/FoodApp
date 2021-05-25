@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, KeyboardAvoidingView, SafeAreaView} from 'react-native';
+import {View, KeyboardAvoidingView,SafeAreaView, Keyboard} from 'react-native';
 import {ImageComp, InputText, Label, Status} from '../../component/index';
 import {Button} from '../../component/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -9,8 +9,10 @@ import Routes from '../../routes/routes';
 import {validation} from '../../utils/ValidationUtils';
 import {Color} from '../../utils/Color';
 import LinearGradient from 'react-native-linear-gradient';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {ScrollView, TouchableOpacity, TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import CommonStyles from '../../utils/CommonStyles';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+
 
 class Signup extends Component {
   constructor(props) {
@@ -53,33 +55,48 @@ class Signup extends Component {
       };
       AsyncStorage.setItem('signup_data', JSON.stringify(obj));
       console.log(obj);
+      alert("SignUp SuccessFully Completed")
       this.props.navigation.navigate(Routes.Login);
     }
   };
   render() {
     return (
       <SafeAreaView style={CommonStyles.container}>
+
         <LinearGradient
           colors={[Color.GRADIENT3, Color.GRADIENT4]}
           start={{x: 0, y: 1}}
           end={{x: 1, y: 0}}
           style={CommonStyles.linerGradient}>
-          <KeyboardAvoidingView
+
+<KeyboardAwareScrollView
+          style={{flex: 1}}
+          resetScrollToCoords={{x: 0, y: 0}}
+          scrollEnabled={true}
+          enableResetScrollToCoords={false}
+          keyboardVerticalOffset={0}
+          enableOnAndroid={true}
+          keyboardShouldPersistTaps="always">
+
+          {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
+          {/* <KeyboardAvoidingView
             behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
-            keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 40}
-            enabled={Platform.OS === 'ios' ? true : false}>
+            keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 40} 
+             enabled={Platform.OS === 'ios' ? true : false}> */}
+             
             <View>
               <Status hidden={true}/>
               <ImageComp />
               <Label xxlarge align="center" mb={15} bolder color={Color.WHITE}>
-                Registered Now
+                Welcome To All 
               </Label>
-
+              {/* <ScrollView> */}
               <Animatable.View
                 style={CommonStyles.content_container}
                 animation="fadeInUpBig"
                 iterationDelay={400}>
                 <View style={CommonStyles.login_signup_container}>
+
                   <TouchableOpacity
                     onPress={() => {
                       this.props.navigation.push(Routes.Login);
@@ -95,45 +112,54 @@ class Signup extends Component {
                     </Label>
                   </View>
                 </View>
+               
+                <View>
                 <InputText
                   name="person"
-                  placeholder="First Name"
+                  placeholder="Enter Name"
                   onChangeText={text => this.setState({firstname: text})}
                   value={this.state.firstname}
                 />
-                <Label small ms={25} mt={5} color={Color.ERROR}>
+                <Label small ms={25} color={Color.ERROR}>
                   {this.state.firstnamerror}
                 </Label>
                 <InputText
                   name="email"
-                  placeholder="Email"
+                  placeholder="Enter Email"
                   onChangeText={text => this.setState({email: text})}
                   value={this.state.email}
                   error={this.state.emailError}
                   keyboardType="email-address"
                 />
-                <Label small ms={25} mt={5} color={Color.ERROR}>
+                <Label small ms={25}  color={Color.ERROR}>
                   {this.state.emailError}
                 </Label>
                 <InputText
                   name="phone-iphone"
-                  placeholder="Number"
+                  placeholder="Enter Number"
                   onChangeText={text => this.setState({phoneNo: text})}
                   value={this.state.phoneNo}
                   error={this.state.phoneErrorValidation}
                   keyboardType="phone-pad"
                 />
-
-                <Label small ms={25} mt={5} color={Color.ERROR}>
+                <Label small ms={25} color={Color.ERROR}>
                   {this.state.phoneErrorValidation}
                 </Label>
+                </View>
                 <View style={{marginTop: 10, paddingBottom: 10}}>
                   <Button name="sign-In" onPress={this.check_validate} />
                 </View>
+
               </Animatable.View>
+              {/* </ScrollView> */}
             </View>
-          </KeyboardAvoidingView>
+          {/* </KeyboardAvoidingView> */}
+          {/* </TouchableWithoutFeedback> */}
+         
+         </KeyboardAwareScrollView>
         </LinearGradient>
+      
+      
       </SafeAreaView>
     );
   }
