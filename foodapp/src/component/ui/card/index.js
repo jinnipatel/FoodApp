@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
-
 import Label from '../Label';
 import {Styles} from './style';
-import {Color, ThemeUtils} from '../../../utils';
+import {ThemeUtils} from '../../../utils';
 
-export default class CardComponent extends Component {
+export default class Card extends Component {
   render() {
     return (
       <View>

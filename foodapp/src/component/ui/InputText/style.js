@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
         paddingLeft:60,
         flex:1,
         fontSize:20,
-        color: '#6f6e92'
     },
     eyeIcon:{
         alignSelf:'center',

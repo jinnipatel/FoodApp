@@ -1,17 +1,11 @@
 import {CommonActions} from '@react-navigation/routers';
 import React, {Component} from 'react';
-import { StatusBar, View} from 'react-native';
-import {Button, Header, IconButton, Loader, RoundButton, Status, Toast} from '../../component/index';
+import {View} from 'react-native';
+import {Button, Card, Header, Status} from '../../component/index';
 import Routes from '../../routes/routes';
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import {Label} from '../../component/index'
-import { Color } from '../../utils/Color';
-
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export class Home extends Component {
-
-  
   resetStack = CommonActions.reset({
     index: 0,
     routes: [{name: Routes.SplashScreen}],
@@ -28,11 +22,47 @@ export class Home extends Component {
   render() {
     return (
       <View>
-       <Status hidden={false}/>
-       <Header onPress={()=>this.props.navigation.openDrawer()}/>
-       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',marginTop:50}}>
-        <Button name="Logout" onPress={()=>this.removeAuthentication()} />
-      </View> 
+        <Status hidden={true} />
+        <Header
+          onPress={() => this.props.navigation.openDrawer()}
+          Headertext="DashBoard"
+          name="menu"
+          iconName="notifications"
+        />
+        <View
+          style={{
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            marginTop: 30,
+            flexDirection: 'row',
+          }}>
+          <Card name="card" label="NewOrder" />
+          <Card label="ActiveOrder" />
+        </View>
+
+        <View
+          style={{
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            marginTop: 30,
+            flexDirection: 'row',
+          }}>
+          <Card name="card" label="DeliverOrder" />
+          <Card label="TotalOrder" />
+        </View>
+
+        <View
+          style={{
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            marginTop: 30,
+            flexDirection: 'row',
+          }}>
+          <Card name="card" label="Earning" />
+          <Card label="Review" />
+        </View>
+
+        <Button name="Logout" onPress={() => this.removeAuthentication()} />
       </View>
     );
   }

@@ -68,7 +68,6 @@ export class ForgotPassword extends Component {
                 style={CommonStyles.content_container}
                 animation="fadeInUpBig"
                 iterationDelay={400}>
-                {/* <Image source={require("../../assets/Img/forgot-pass.png")} style={{width:100,height:100,marginTop:20,marginLeft:125}}/>   */}
                 <Label
                   xlarge
                   bolder
@@ -81,17 +80,14 @@ export class ForgotPassword extends Component {
                   Enter Your Email For the Verification Process . We Will send 4
                   Digits code to Your Email
                 </Label>
-
                 <InputText
                   name="email"
                   placeholder="Enter Email"
                   onChangeText={text => this.setState({email: text})}
                 />
-
                 <Label small ms={30} mb={10} color={Color.ERROR}>
                   {this.state.emailError}
                 </Label>
-
                 <View style={{paddingBottom: 10}}>
                   <Button name="Continue" onPress={this.check_Validation} />
                 </View>

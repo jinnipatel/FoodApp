@@ -1,89 +1,89 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
-import { CommonActions } from '@react-navigation/routers'
-import React, { Component } from 'react'
-import { ActivityIndicatorBase, Text, View } from 'react-native'
-import {Avatar, Caption, Drawer, Title} from 'react-native-paper'
-import Routes from '../../../routes/routes'
-import Button from '../Buttons'
-import styles from './style'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { Color } from '../../../utils/Color'
+import {DrawerItem} from '@react-navigation/drawer';
+import React from 'react';
+import {View} from 'react-native';
+import {Avatar, Caption, Drawer, Title} from 'react-native-paper';
+import Routes from '../../../routes/routes';
+import styles from './style';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
+import Icons from 'react-native-vector-icons/MaterialIcons';
+import {Color} from '../../../utils/Color';
 
-export function DrawerContent (props) {
+export function DrawerContent(props) {
+  return (
+    <View style={{flex: 1, backgroundColor: Color.APPLE}}>
+      <View
+        style={{flex: 1, flexDirection: 'row', marginTop: 50, marginLeft: 20}}>
+        <Avatar.Image source={require('../../../assets/Img/user1.png')} />
+        <View style={{marginLeft: 15}}>
+          <Title style={{fontSize: 20, color: Color.WHITE}}>JOHN DOE</Title>
+          <Caption style={{fontSize: 16, color: Color.WHITE}}>
+            driverone@gmail.com
+          </Caption>
+        </View>
+      </View>
 
-  
-        return (
-            <View style={styles.drawerContainer}>
-                <DrawerContentScrollView {...props}>
-                    <View style={styles.drawerContent}>
-                        <View style={styles.userInfoSection}>
-                            <View>
-                               <Avatar.Image source={require('../../../assets/Img/user1.png')} size={100} style={{alignSelf:'center',marginTop:25}} /> 
-                            </View>
-                            <View style={{alignItems:'center'}}>
-                                <Title style={styles.title}>User Name</Title>
-                                <Caption style={styles.caption}>Xyz</Caption>
-                            </View>
-                        </View>
-                        <Drawer.Section style={styles.drawerSection}>
-                            <DrawerItem
-                            icon={()=>(
-                                <Icon name="home-outline"
-                                color={Color.GRADIENT4}
-                                size={25}/>
-                            )}
-                            label="Profile" labelStyle={{fontSize:15,color:Color.GRADIENT4}}/>
-                            <DrawerItem 
-                              icon={()=>(<Icon name="file-document-edit-outline"
-                              color={Color.GRADIENT4}
-                              size={25}/>)}
-                              label="Document Info" labelStyle={{fontSize:15,color:Color.GRADIENT4}}
-                            />
-                             <DrawerItem 
-                              icon={()=>(<Icon name="bank-outline"
-                              color={Color.GRADIENT4}
-                              size={25}/>)}
-                              label="Bank Details" labelStyle={{fontSize:15,color:Color.GRADIENT4}}
-                            />
-
-                            <DrawerItem 
-                              icon={()=>(<Icon name="history"
-                              color={Color.GRADIENT4}
-                              size={25}/>)}
-                              label="Order History" labelStyle={{fontSize:15,color:Color.GRADIENT4}}
-                            />
-
-                            <DrawerItem 
-                              icon={()=>(<Icon name="home-outline"
-                              color={Color.GRADIENT4}
-                              size={25}/>)}
-                              label="Customer Feedback" labelStyle={{fontSize:15,color:Color.GRADIENT4}}
-                            />
-                            
-
-                            <DrawerItem 
-                              icon={()=>(<Icon name="home-outline"
-                              color={Color.GRADIENT4}
-                              size={25}/>)}
-                              label="Earning" labelStyle={{fontSize:15,color:Color.GRADIENT4}}
-                            />
-
-                            <DrawerItem 
-                              icon={()=>(<Icon name="logout"
-                              color={Color.GRADIENT4}
-                              size={25}/>)}
-                              label="Log-Out" labelStyle={{fontSize:15,color:Color.GRADIENT4}}
-                            />
-
-                           
-                        </Drawer.Section>
-                    </View>
-
-                </DrawerContentScrollView>
-            </View>
-        )
-   
+      <View
+        style={{
+          flex: 5,
+          backgroundColor: Color.WHITE,
+          padding: 15,
+          borderTopStartRadius: 20,
+          borderTopEndRadius: 12,
+          marginTop: 20,
+        }}>
+        <Drawer.Section style={styles.drawerSection}>
+          <DrawerItem
+            icon={() => (
+              <Icon name="home-outline" color={Color.GREEN_GREEN} size={30} />
+            )}
+            label="Dashboard"
+            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+          />
+          <DrawerItem
+            icon={() => (
+              <Icon name="face-profile" color={Color.GREEN_GREEN} size={30} />
+            )}
+            label="My Profile"
+            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+            onPress={() => props.navigation.navigate(Routes.Profile)}
+          />
+          <DrawerItem
+            icon={() => (
+              <Icon
+                name="file-document-edit-outline"
+                color={Color.GREEN_GREEN}
+                size={30}
+              />
+            )}
+            label="Documents"
+            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+          />
+          <DrawerItem
+            icon={() => (
+              <Icons name="attach-money" color={Color.GREEN_GREEN} size={30} />
+            )}
+            label="Earning"
+            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+          />
+          <DrawerItem
+            icon={() => (
+              <Feather name="settings" color={Color.GREEN_GREEN} size={30} />
+            )}
+            label="Setting"
+            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+          />
+          <DrawerItem
+            icon={() => (
+              <Icon name="logout" color={Color.GREEN_GREEN} size={30} />
+            )}
+            label="Log-Out"
+            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+          />
+        </Drawer.Section>
+      </View>
+    </View>
+  );
 }
 
-export default DrawerContent
+export default DrawerContent;

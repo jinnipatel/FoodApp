@@ -53,12 +53,6 @@ export class ResetPassword extends Component {
     }
   };
 
-  // IconToggle = () =>{
-  //     this.state.isSecurePaswword
-  //     ?this.setState({isSecurePaswword:false,toggleIcon:'eye'})
-  //     :this.setState({isSecurePaswword:true,toggleIcon:'eye-closed'})
-  //   }
-
   IconToggle = () => {
     this.state.isSecurePassword
       ? this.setState({isSecurePassword: false, toggleIcon: 'eye'})

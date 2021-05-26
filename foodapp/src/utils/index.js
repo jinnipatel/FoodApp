@@ -1,11 +1,11 @@
 import {Platform, NetInfo} from 'react-native';
-import {Color} from 'src/utils/Color'
-import DateUtils from 'src/utils/DateUtils'
-import Messages from 'src/utils/MessageUtils'
-import Constants from 'src/utils/Constants'
-import CommonStyle from 'src/utils/CommonStyles'
-import ThemeUtils from 'src/utils/ThemeUtils'
-import {validation, PasswordValidate} from 'src/utils/ValidationUtils'
+import {Color} from '../utils/Color'
+import DateUtils from '../utils/DateUtils'
+import Messages from '../utils/MessageUtils'
+import Constants from '../utils/Constants'
+import CommonStyle from '../utils/CommonStyles'
+import ThemeUtils from '../utils/ThemeUtils'
+import {validation, PasswordValidate} from '../utils/ValidationUtils'
 
 const {
     Version,
