@@ -11,10 +11,12 @@ import {Color} from '../../../utils/Color';
 
 export function DrawerContent(props) {
   return (
-    <View style={{flex: 1, backgroundColor: Color.APPLE}}>
+    <View style={{flex: 1, backgroundColor: Color.PRIMARY}}>
       <View
         style={{flex: 1, flexDirection: 'row', marginTop: 50, marginLeft: 20}}>
-        <Avatar.Image source={require('../../../assets/Img/user1.png')} />
+        <Avatar.Image
+          source={require('../../../assets/Img/profile_logo.png')}
+        />
         <View style={{marginLeft: 15}}>
           <Title style={{fontSize: 20, color: Color.WHITE}}>JOHN DOE</Title>
           <Caption style={{fontSize: 16, color: Color.WHITE}}>
@@ -35,50 +37,50 @@ export function DrawerContent(props) {
         <Drawer.Section style={styles.drawerSection}>
           <DrawerItem
             icon={() => (
-              <Icon name="home-outline" color={Color.GREEN_GREEN} size={30} />
+              <Icon name="home-outline" color={Color.PRIMARY_DARK} size={30} />
             )}
             label="Dashboard"
-            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+            labelStyle={{fontSize: 20, color: Color.PRIMARY_DARK}}
           />
           <DrawerItem
             icon={() => (
-              <Icon name="face-profile" color={Color.GREEN_GREEN} size={30} />
+              <Icon name="face-profile" color={Color.PRIMARY_DARK} size={30} />
             )}
             label="My Profile"
-            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+            labelStyle={{fontSize: 20, color: Color.PRIMARY_DARK}}
             onPress={() => props.navigation.navigate(Routes.Profile)}
           />
           <DrawerItem
             icon={() => (
               <Icon
                 name="file-document-edit-outline"
-                color={Color.GREEN_GREEN}
+                color={Color.PRIMARY_DARK}
                 size={30}
               />
             )}
             label="Documents"
-            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+            labelStyle={{fontSize: 20, color: Color.PRIMARY_DARK}}
           />
           <DrawerItem
             icon={() => (
-              <Icons name="attach-money" color={Color.GREEN_GREEN} size={30} />
+              <Icons name="attach-money" color={Color.PRIMARY_DARK} size={30} />
             )}
             label="Earning"
-            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+            labelStyle={{fontSize: 20, color: Color.PRIMARY_DARK}}
           />
           <DrawerItem
             icon={() => (
-              <Feather name="settings" color={Color.GREEN_GREEN} size={30} />
+              <Feather name="settings" color={Color.PRIMARY_DARK} size={30} />
             )}
             label="Setting"
-            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+            labelStyle={{fontSize: 20, color: Color.PRIMARY_DARK}}
           />
           <DrawerItem
             icon={() => (
-              <Icon name="logout" color={Color.GREEN_GREEN} size={30} />
+              <Icon name="logout" color={Color.PRIMARY_DARK} size={30} />
             )}
             label="Log-Out"
-            labelStyle={{fontSize: 20, color: Color.GREEN_GREEN}}
+            labelStyle={{fontSize: 20, color: Color.PRIMARY_DARK}}
           />
         </Drawer.Section>
       </View>

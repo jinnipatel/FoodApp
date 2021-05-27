@@ -8,9 +8,7 @@ import Routes from '../../routes/routes';
 import {validation, PasswordValidate} from '../../utils/ValidationUtils';
 import {Color} from '../../utils/Color';
 import LinearGradient from 'react-native-linear-gradient';
-import {
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import CommonStyles from '../../utils/CommonStyles';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -137,13 +135,13 @@ class Signup extends Component {
                       large
                       align="center"
                       bolder
-                      color={Color.DARK_MODERATE_BLUE}>
+                      color={Color.INACTIVE_COLOR}>
                       Login
                     </Label>
                   </TouchableOpacity>
 
                   <View style={CommonStyles.bottom_border}>
-                    <Label large bolder align="center" color={Color.DARK_BLUE}>
+                    <Label large bolder align="center" color={Color.ACTIVE_COLOR}>
                       SignUp
                     </Label>
                   </View>
@@ -189,7 +187,7 @@ class Signup extends Component {
                     onChangeText={text => {
                       this.setState({password: text});
                     }}
-                    closeColor={Color.GREEN_GREEN}
+                    closeColor={Color.PRIMARY_DARK}
                     IconName={this.state.toggleIcon}
                     onToggle={() => this.IconToggle()}
                   />
@@ -204,7 +202,7 @@ class Signup extends Component {
                     onChangeText={text => {
                       this.setState({confirmPassword: text});
                     }}
-                    closeColor={Color.GREEN_GREEN}
+                    closeColor={Color.PRIMARY_DARK}
                     IconName={this.state.toggleIcon1}
                     onToggle={() => this.conformToggle()}
                   />

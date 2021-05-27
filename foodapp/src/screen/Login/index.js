@@ -95,10 +95,10 @@ class Login extends Component {
             <Animatable.View
               style={CommonStyles.content_container}
               animation="fadeInUpBig"
-              iterationDelay={400}>
+              iterationDelay={400}>  
               <View style={CommonStyles.login_signup_container}>
                 <View style={CommonStyles.bottom_border}>
-                  <Label large align="center" bolder color={Color.DARK_BLUE}>
+                  <Label large align="center" bolder color={Color.ACTIVE_COLOR}>
                     Login
                   </Label>
                 </View>
@@ -110,7 +110,7 @@ class Login extends Component {
                     large
                     align="center"
                     bolder
-                    color={Color.DARK_MODERATE_BLUE}>
+                    color={Color.INACTIVE_COLOR}>
                     SignUp
                   </Label>
                 </TouchableOpacity>
@@ -132,7 +132,7 @@ class Login extends Component {
                 value={this.state.password}
                 secureTextEntry={this.state.isSecurePaswword}
                 onChangeText={text => this.setState({password: text})}
-                closeColor={Color.GREEN_GREEN}
+                closeColor={Color.PRIMARY_DARK}
                 IconName={this.state.toggleIcon}
                 onToggle={() => this.IconToggle()}
               />
@@ -149,7 +149,7 @@ class Login extends Component {
                   this.props.navigation.navigate(Routes.ForgotPassword)
                 }
                 style={{marginTop: 10, alignSelf: 'flex-end'}}>
-                <Label align="right" lagre color={Color.DARK_BLUE}>
+                <Label align="right" lagre color={Color.ACTIVE_COLOR}>
                   Forgot Password?
                 </Label>
               </TouchableOpacity>
@@ -164,11 +164,11 @@ class Login extends Component {
                 }}>
                 <SocialButton
                   btntext="FaceBook"
-                  source={require('../../assets/Img/facebook1.png')}
+                  source={require('../../assets/Img/facebook_logo.png')}
                 />
                 <SocialButton
                   btntext="Google"
-                  source={require('../../assets/Img/google.png')}
+                  source={require('../../assets/Img/google_logo.png')}
                 />
               </View>
             </Animatable.View>

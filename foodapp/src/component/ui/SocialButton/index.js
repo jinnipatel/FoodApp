@@ -9,7 +9,7 @@ export default class SocialButton extends Component {
      
       <TouchableOpacity onPress={this.props.onPress} style={styles.button}>
         <Image source={this.props.source} style={styles.image}/>
-        <Text style={styles.text}>{this.props.btntext}</Text>
+        <Label style={styles.text}>{this.props.btntext}</Label>
       </TouchableOpacity>
     );
   }

@@ -13,19 +13,19 @@ const Onboarding = ({navigation}) => {
       key: 's1',
       title: 'Find Foods You Want',
       text: 'Discover The Best Foods From Nearest Restaurants.',
-      image: require('../../assets/Img/Orderfood.png'),
+      image: require('../../assets/Img/orderfood_logo.png'),
     },
     {
       key: 's2',
       title: 'Live Tracking',
       text: 'Real Time Tracking Of Your Food Order On The App.',
-      image: require('../../assets/Img/img2.png'),
+      image: require('../../assets/Img/payment_logo.png'),
     },
     {
       key: 's3',
       title: 'Fast Delivery',
       text: 'Fast Delivery To Your Home,Office and Wherever You Are. ',
-      image: require('../../assets/Img/FoodDelivery.png'),
+      image: require('../../assets/Img/fooddelivery_logo.png'),
     },
   ];
 
@@ -60,14 +60,14 @@ const Onboarding = ({navigation}) => {
         <Label
           xlarge
           bolder
-          color={Color.DARK_MODERATE_BLUE}
+          color={Color.ONBOARDING_TEXT}
           align="center"
           letterSpacing={1}>
           {item.title}
         </Label>
 
         <View style={{marginHorizontal: 20}}>
-          <Label align="center" large color={Color.DARK_MODERATE_BLUE} mb={10}>
+          <Label align="center" large color={Color.ONBOARDING_TEXT} mb={10}>
             {item.text}
           </Label>
         </View>

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {ThemeUtils} from '../../../utils';
 import {Color} from '../../../utils/Color';
 
 const styles = StyleSheet.create({
@@ -6,8 +7,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    height: 50,
-    width: 325,
+    height: ThemeUtils.relativeHeight(7),
+    width: ThemeUtils.relativeWidth(80),
     borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',

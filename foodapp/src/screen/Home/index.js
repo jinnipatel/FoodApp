@@ -4,6 +4,7 @@ import {View} from 'react-native';
 import {Button, Card, Header, Status} from '../../component/index';
 import Routes from '../../routes/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Styles from './style';
 
 export class Home extends Component {
   resetStack = CommonActions.reset({
@@ -29,35 +30,17 @@ export class Home extends Component {
           name="menu"
           iconName="notifications"
         />
-        <View
-          style={{
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            marginTop: 30,
-            flexDirection: 'row',
-          }}>
+        <View style={Styles.cardContainer}>
           <Card name="card" label="NewOrder" />
           <Card label="ActiveOrder" />
         </View>
 
-        <View
-          style={{
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            marginTop: 30,
-            flexDirection: 'row',
-          }}>
+        <View style={Styles.cardContainer}>
           <Card name="card" label="DeliverOrder" />
           <Card label="TotalOrder" />
         </View>
 
-        <View
-          style={{
-            justifyContent: 'space-evenly',
-            alignItems: 'center',
-            marginTop: 30,
-            flexDirection: 'row',
-          }}>
+        <View style={Styles.cardContainer}>
           <Card name="card" label="Earning" />
           <Card label="Review" />
         </View>

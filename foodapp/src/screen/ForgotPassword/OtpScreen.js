@@ -21,10 +21,10 @@ export class OtpScreen extends Component {
             style={styles.footer}
             animation="fadeInUpBig"
             iterationDelay={400}>
-            <Image
+            {/* <Image
               source={require('../../assets/Img/forgot-pass.png')}
               style={{width: 100, height: 100, marginTop: 20, marginLeft: 125}}
-            />
+            /> */}
             <Label xlarge ms={20}>
               Enter Verification Code
             </Label>

@@ -19,5 +19,9 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: Color.WHITE,
   },
+  bottomButton:{
+    marginTop: 5, 
+    paddingBottom: 10
+  }
 });
 export default styles;

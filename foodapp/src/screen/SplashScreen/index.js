@@ -7,7 +7,6 @@ import Routes from '../../routes/routes';
 import {Label, Status} from '../../component';
 import {Color} from '../../utils/Color';
 
-
 class SplashScreen extends React.Component {
   resetToAuth = CommonActions.reset({
     index: 0,
@@ -51,20 +50,19 @@ class SplashScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-         <Status hidden={true}/>
+        <Status hidden={true} />
         <Image
           source={require('../../assets/Img/foodoorer.jpg')}
           style={styles.logo}
         />
         <View style={styles.footer}>
-          <Label small color={Color.AVOCADO} ms={10}>
+          <Label small color={Color.DARK_GRAYISH_BLUE} ms={10}>
             By Team
           </Label>
-          <Label small color={Color.AVOCADO} mt={10} ms={5}>
+          <Label small color={Color.DARK_GRAYISH_BLUE} mt={10} ms={5}>
             Foodoorer
           </Label>
         </View>
-      
       </View>
     );
   }

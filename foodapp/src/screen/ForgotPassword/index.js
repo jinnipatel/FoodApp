@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  Image,
-  KeyboardAvoidingView,
-  SafeAreaView,
-  Keyboard,
-} from 'react-native';
+import {View, KeyboardAvoidingView, Keyboard} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Button, ImageComp, InputText, Label, Status} from '../../component';
 import {Color} from '../../utils/Color';
@@ -16,6 +9,7 @@ import Routes from '../../routes/routes';
 import {validation} from '../../utils/ValidationUtils';
 import CommonStyles from '../../utils/CommonStyles';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 export class ForgotPassword extends Component {
   constructor() {
@@ -57,43 +51,47 @@ export class ForgotPassword extends Component {
           start={{x: 0, y: 1}}
           end={{x: 1, y: 0}}
           style={CommonStyles.linerGradient}>
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <KeyboardAvoidingView
-              behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
-              keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 40}
-              enabled={Platform.OS === 'ios' ? true : false}>
-              <Status hidden={true} />
+          <KeyboardAwareScrollView
+            style={{flex: 1}}
+            resetScrollToCoords={{x: 0, y: 0}}
+            scrollEnabled={true}
+            enableResetScrollToCoords={false}
+            keyboardVerticalOffset={0}
+            enableOnAndroid={true}
+            keyboardShouldPersistTaps="always">
+            <Status hidden={true} />
+            <View style={{marginBottom: 20}}>
               <ImageComp />
-              <Animatable.View
-                style={CommonStyles.content_container}
-                animation="fadeInUpBig"
-                iterationDelay={400}>
-                <Label
-                  xlarge
-                  bolder
-                  mt={10}
-                  align="center"
-                  color={Color.GREEN_GREEN}>
-                  Forgot your Password?
-                </Label>
-                <Label small mt={10} ms={20} mb={10} color={Color.DARK_GRAY}>
-                  Enter Your Email For the Verification Process . We Will send 4
-                  Digits code to Your Email
-                </Label>
-                <InputText
-                  name="email"
-                  placeholder="Enter Email"
-                  onChangeText={text => this.setState({email: text})}
-                />
-                <Label small ms={30} mb={10} color={Color.ERROR}>
-                  {this.state.emailError}
-                </Label>
-                <View style={{paddingBottom: 10}}>
-                  <Button name="Continue" onPress={this.check_Validation} />
-                </View>
-              </Animatable.View>
-            </KeyboardAvoidingView>
-          </TouchableWithoutFeedback>
+            </View>
+            <Animatable.View
+              style={CommonStyles.content_container}
+              animation="fadeInUpBig"
+              iterationDelay={400}>
+              <Label
+                xlarge
+                bolder
+                mt={10}
+                align="center"
+                color={Color.PRIMARY_DARK}>
+                Forgot your Password?
+              </Label>
+              <Label small mt={10} ms={20} mb={10} color={Color.DARK_GRAY}>
+                Enter Your Email For the Verification Process . We Will send 4
+                Digits code to Your Email
+              </Label>
+              <InputText
+                name="email"
+                placeholder="Enter Email"
+                onChangeText={text => this.setState({email: text})}
+              />
+              <Label small ms={30} mb={10} color={Color.ERROR}>
+                {this.state.emailError}
+              </Label>
+              <View style={{paddingBottom: 10}}>
+                <Button name="Continue" onPress={this.check_Validation} />
+              </View>
+            </Animatable.View>
+          </KeyboardAwareScrollView>
         </LinearGradient>
       </View>
     );

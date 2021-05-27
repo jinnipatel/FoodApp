@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StatusBar, Text, View} from 'react-native';
+import {StatusBar, View} from 'react-native';
 
 export class Status extends Component {
   render() {

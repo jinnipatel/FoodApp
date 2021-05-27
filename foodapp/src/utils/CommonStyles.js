@@ -16,7 +16,7 @@ const Style = StyleSheet.create({
         // height:450,
         width:ThemeUtils.relativeWidth(95),
         paddingHorizontal:20,
-        backgroundColor:Color.WHITE,
+        backgroundColor:Color.BOX_BG,
         borderRadius:12,
     },
     linerGradient:{

@@ -1,7 +1,12 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 const Styles = StyleSheet.create({
-
+  cardContainer: {
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginTop: 30,
+    flexDirection: 'row',
+  },
 });
 
-export default Styles
+export default Styles;
