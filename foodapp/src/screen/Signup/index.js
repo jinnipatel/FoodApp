@@ -11,6 +11,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import CommonStyles from '../../utils/CommonStyles';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import {createUser} from '../../redux/reducers/Signup/action'
 
 class Signup extends Component {
   constructor(props) {
@@ -31,6 +34,19 @@ class Signup extends Component {
       isSecurePassword: true,
       isConformPassword: true,
     };
+  }
+
+
+  _createUser = param =>{
+    this.props.createUser(param)
+  };
+
+  SignUpUserRequest = obj =>{
+      console.log('User Clicked');
+      const {email,password} = this.state;
+      this.setState({visibility:true},()=>{
+        this._createUser(obj);
+      })
   }
 
   check_validate = () => {
@@ -81,9 +97,13 @@ class Signup extends Component {
         password: this.state.password,
         confirmPassword: this.state.confirmPassword,
       };
+      // AsyncStorage.setItem('signup_data', JSON.stringify(obj));
+      // alert('SignUp SuccessFully Completed');
+      // this.props.navigation.navigate(Routes.Login);
       AsyncStorage.setItem('signup_data', JSON.stringify(obj));
-      alert('SignUp SuccessFully Completed');
-      this.props.navigation.navigate(Routes.Login);
+      console.log(obj);
+      this.SignUpUserRequest(obj)
+      this.props.navigation.navigate(Routes.Login)
     }
   };
 
@@ -222,4 +242,12 @@ class Signup extends Component {
     );
   }
 }
-export default Signup;
+
+const mapDispatchToProps = dispatch =>
+bindActionCreators(
+  {
+    createUser,
+  },
+  dispatch,
+)
+export default connect(null,mapDispatchToProps) (Signup);

@@ -16,7 +16,7 @@ export class ForgotPassword extends Component {
     super();
     this.state = {
       email: '',
-      emailError: '',   //jhgdjajah
+      emailError: '',  
     };
   }
 

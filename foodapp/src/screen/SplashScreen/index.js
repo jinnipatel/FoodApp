@@ -26,6 +26,22 @@ class SplashScreen extends React.Component {
     ],
   });
 
+  // componentDidMount = async () =>{
+  //   let obj = {
+  //     name="jinni"
+  //   };
+  //   AsyncStorage.setItem('user1',JSON.stringify(obj));
+  //   try {
+  //      let user = await AsyncStorage.getItem(user1);
+  //      let token = JSON.parse(user)
+  //      console.log(token)
+  //      if(token != null) this.goTo(true);
+  //      else this.goTo(false)
+  //   } catch (error) {
+  //      alert(error)
+  //   }
+  // }
+
   componentDidMount() {
     this.checkAuthentication();
   }

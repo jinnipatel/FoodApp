@@ -1,12 +1,21 @@
 import {CommonActions} from '@react-navigation/routers';
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {Alert, View} from 'react-native';
 import {Button, Card, Header, Status} from '../../component/index';
 import Routes from '../../routes/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Styles from './style';
 
 export class Home extends Component {
+
+ componentDidMount(){
+   this.fetchAll();
+ }
+
+ fetchAll = () =>{
+   Alert.alert("hii")
+ }
+   
   resetStack = CommonActions.reset({
     index: 0,
     routes: [{name: Routes.SplashScreen}],

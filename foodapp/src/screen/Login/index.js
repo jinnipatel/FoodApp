@@ -14,9 +14,13 @@ import styles from './style';
 import Routes from '../../routes/routes';
 import {validation} from '../../utils/ValidationUtils';
 import {Color} from '../../utils/Color';
+// import {getUser} from '../../redux/reducers/Login/action'
+import {getUser} from '../../redux/reducers/Login/action'
 import LinearGradient from 'react-native-linear-gradient';
 import CommonStyles from '../../utils/CommonStyles';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux'
 
 class Login extends Component {
   constructor(props) {
@@ -29,6 +33,28 @@ class Login extends Component {
       toggleIcon: 'eye-closed',
       isSecurePaswword: true,
     };
+  }
+
+  
+
+  fetchAll = (param)=>{
+    // this.props.getUser(param)
+    this.props.getUser(param)
+  }
+
+  loginUserRequest = async () =>{
+    console.log("login User Clicked")
+
+    const {email,password} = this.state;
+    this.setState({visibility:true},()=>{
+      let param = {
+        email:email,
+        password:password,
+        app_type:'parent'
+      }
+      this.fetchAll(param)
+      console.log()
+    })
   }
 
   checked_filed = () => {
@@ -48,12 +74,20 @@ class Login extends Component {
       });
       isValid = true;
     }
-    if (isValid) {
+    if(isValid){
+      this.loginUserRequest();
       this.props.navigation.navigate(Routes.Auth, {
-        email: this.state.email,
-        password: this.state.password,
-      });
+            email: this.state.email,
+            password: this.state.password,
+          });
+      // this.props.navigation.navigate(Routes.Home)
     }
+    // if (isValid) {
+    //   this.props.navigation.navigate(Routes.Auth, {
+    //     email: this.state.email,
+    //     password: this.state.password,
+    //   });
+    // }
   };
 
   making_api_call = () => {
@@ -178,4 +212,20 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+
+function mapStateToProps(state) {
+  return{
+    data:state.login,
+  }
+  
+}
+  
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+    getUser,
+  },
+  dispatch,)
+
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
